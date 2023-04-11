@@ -4,7 +4,7 @@ import '../../css/responsive.css'
 import '../../css/lightbox.min.css'
 import '../../css/bootstrap.min.css'
 import banner0 from '../../images/banner.png'
-
+import film3 from '../../images/KHÓA CHẶT CỬA NÀO SUZUME.png'
 
 
 
@@ -40,7 +40,7 @@ const ThisFilm=() => {
                         <img
                             alt="image"
                             className="img-responsive"
-                            
+                            src={film3}
                         />
                         </a>
                     </div>

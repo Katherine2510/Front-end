@@ -1,25 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/style-login.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "../../css/table.css";
+import { Link, useParams } from "react-router-dom";
 
-export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
-  }
+const roleType = {
+  admin: "admin11@gmail.com",
+  //thêm các role vào đây,
+};
 
-  setParams = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  login = () => {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       username: "",
+  //       password: "",
+  //     };
+  //   }
+
+  // setParams = (event) => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
+
+  const navigate = useNavigate();
+  const login = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     var urlencoded = new URLSearchParams();
-    urlencoded.append("email", this.state.email);
-    urlencoded.append("password", this.state.password);
+    urlencoded.append("email", email);
+    urlencoded.append("password", password);
 
     var requestOptions = {
       method: "POST",
@@ -40,11 +53,19 @@ export default class Login extends React.Component {
         console.log(result);
         localStorage.setItem("success", result.success);
         localStorage.setItem("token", result.token);
-        localStorage.setItem("user", result.user._id);
-        if (result.success == true) {
-          alert("Thanh cong");
-        } else {
-          alert("email, password are wrong");
+        toast.success(true);
+        setPassword("");
+        setEmail("");
+        alert("thanh cong");
+        switch (result?.user?.email) {
+          case roleType.admin:
+            navigate("/admin");
+            console.log(result);
+            break;
+          //case //viết nốt vào đây là đc nè
+          default:
+            navigate("/phimdangchieu");
+            break;
         }
       })
       .catch((error) => {
@@ -53,12 +74,10 @@ export default class Login extends React.Component {
       });
   };
 
-  render() {
-    return (
-    
-        <div>
-          <h1>Sign in</h1>
-       {/*} <div className = 'span-login'>
+  return (
+    <div className="dialog, set">
+      <h1>Sign in</h1>
+      {/*} <div className = 'span-login'>
         <div class="social-container">
             <a href="#" class="social">
               <i className="fa fa-facebook" ></i>
@@ -72,34 +91,42 @@ export default class Login extends React.Component {
           </div>
           <div>or use your account</div> 
         </div>*/}
-          
-          
-          <div className="user-box">
-            <label>Email:</label>
-            <input type="text" name="email" onChange={this.setParams} />
-          </div>
-          <div className="user-box">
-            <label>Password:</label>
-            <input type="password" name="password" onChange={this.setParams} />
-          </div>
 
-          <br></br>
-          <br></br>
-          <br></br>
-          <div>
-            <button type="button" name="email" onClick={this.login}>
-              Login
-            </button>
-          </div>
-          <div className="span-login"> Bạn chưa có tài khoản? </div>
-          <div>
-            <button type="button" name="email">
-              Register
-            </button>
-          </div>
-        </div>
-        
-      
-    );
-  }
-}
+      <div className="user-box">
+        <label>Email:</label>
+        <input
+          type="text"
+          name="email"
+          onChange={(event: any) => setEmail(event.target.value)}
+        />
+      </div>
+      <div className="user-box">
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          onChange={(event: any) => setPassword(event.target.value)}
+        />
+      </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <div>
+        <button type="button" name="email" onClick={login}>
+          Login
+        </button>
+      </div>
+      <div className="span-login"> Bạn chưa có tài khoản? </div>
+      <div>
+        <Link to="/register">
+          <button type="button" name="email">
+            Register
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

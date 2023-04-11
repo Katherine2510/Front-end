@@ -1,177 +1,67 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { useNavigate} from "react-router-dom"
-import { useNavigation } from 'react-router-dom'
+import { withRouter } from "react-router-dom"
 import '../../css/booking.css'
-import { Route, Router, Routes } from 'react-router-dom'
-import ViewNameFilm from '../View/ViewNameFilm'
-import { Link } from 'react-router-dom'
 
-import { Navigate } from "react-router-dom"
-
-class SeatBooking extends React.Component {
- 
+class SeatBooking extends Component {
     constructor(props) {
         super(props);
-        
         this.state = {
             selectingSeats: []
-           
-           
         }
-    }
-    state = {
-        redirect:false
     }
     componentDidMount() {
-        axios.get('http://localhost:3001/api/show/getShowByShowID/6435306d0b4c07197500771a').then(res => {
+        axios.get('').then(res => {
             // console.log(res.data)
-            res.data?.show?.seats.map ((e,i) =>{
-                let seatNumber = `${String.fromCharCode(e.row + 64)}${String(e.column)}`
-                if (e.state === true) {
-                
-                    document.getElementById(seatNumber).setAttribute("disabled", true)
+            const resData = res.data;
+            for(let i=0;i<resData.length;i++){
+                if(resData[i].available === false){
+                    document.getElementById(resData[i].seatNumber).setAttribute("disabled", true)
                 }
-                
-            })
-          
-           
-        })
-     
-    }  choiceSeat = (seat) => {
-        if (this.state.selectingSeats.includes(seat) == false) {
-            const newBookedSeats = [ ...this.state.selectingSeats, seat ];
-            this.setState({
-            selectingSeats: newBookedSeats
- 
-        })
-        } else {
-            for( var i = 0; i < this.state.selectingSeats.length; i++){ 
-    
-                if ( this.state.selectingSeats[i] === seat) { 
-            
-                    this.state.selectingSeats.splice(i, 1); 
-                }
-            
             }
-        } 
-
-      
-       
-        
- 
+        })
+    }
+    choiceSeat = (seat) => {
+        const newBookedSeats = [ ...this.state.selectingSeats, seat ];
+        this.setState({
+            selectingSeats: newBookedSeats
+        })
     };
     SelectSeats = () => {
-        
         const Selected = this.state.selectingSeats;
-        if (localStorage.getItem('success') !== 'true'){
-            Selected.length = 0;
-            alert ('Not Logged in')
-        }
-        else if(Selected.length !== 0 )
+        if(Selected.length !== 0)
         {
-            localStorage.setItem('seats', this.state.selectingSeats)  
-            const Selected = this.state.selectingSeats;   }
-        else  {
+            axios.post('http://localhost:8080/bookSeat', {"seats": Selected}).then(res => {
+                this.props.history.push('/invoice')
+            })
+        }
+        else {
             alert('Please Select Seats')
-            
         }
     };
-    checkAvailableseat = () => {
-        const Selected = this.state.selectingSeats;
-        axios.get('http://localhost:3001/api/show/getShowByShowID/642d6f494f2df87960df936c')
-        .then (
-            
-            )
-        
-    }
-    
- 
- 
 
     render() {
-        
-
-            const renderAuthButton = () => {
-            if (localStorage.getItem('success') == 'true') {
-                return (<Link to = 'bill'> <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button> </Link>) ;
-            } else {
-                return   <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button>;
-            }
-            }
-       
-        const seatsColumnsOfS1 = ['1', '2', '3', '4', '', '5',  '6', '7', '8'];
-        const seatsRowsOfS1 = ['H', 'G','F', 'E', '', 'D', 'C', 'B', 'A'];
-
-        const seatsGeneratorS1 = () => {
+        const seatsColumns = ['1', '2', '3', '4', '5', '', '6', '7', '8', '9', '10', '11', '12'];
+        const seatsRows = ['A', 'B','C', 'D', 'E', '', 'F', 'G', 'H', 'I', 'J'];
+        const seatsGenerator = () => {
             return (
-                <table id="seatsBlock" >
+                <table id="seatsBlock">
                     <tbody>
                     <tr>
                         <td></td>
-                        {seatsColumnsOfS1
-            .map((column, index) => <td key={index}>{column}</td>)}
+                        {seatsColumns.map((column, index) => <td key={index}>{column}</td>)}
                     </tr>
                     {
-                        seatsRowsOfS1.map((row, index) =>{
-                         return row ==''
+                        seatsRows.map((row, index) =>
+                            row === ''
                                 ?
                                 <tr key={index} className="seatVGap"></tr>
-                                : row == 'H'
-                                ? 
-                                <tr key={index}>
-                                    <td>
-                                        {row}
-                                    </td>
-                                    {seatsColumnsOfS1
-                        .map((column, index) => {
-                                        return (
-                                            column === ''
-                                                ?
-                                                <td key={index} ></td>
-                                                :
-                                                <td key={index}>
-                                                    {column % 2 != 0 ? <input onClick={() => this.choiceSeat(`${row}${column}${(Number(column)+1).toString()}`)} type="checkbox" className="seats input2" id={`${row}${column}`} value={`${row}${column}`} />
-                                                    : <></>}
-                                                    
-                                                </td>
-                                                
-                                        )
-                                    })}
-                                </tr>
-                                :
-                                row < 'G' && row > 'B'
-                                ?
-                                <tr key={index}>
-                                    <td>
-                                        {row}
-                                    </td>
-                                    {seatsColumnsOfS1
-                        .map((column, index) => {
-                                        return (
-                                            column === ''
-                                                ?
-                                                <td key={index} className="seatGap"></td>
-                                                : column > 2 && column <7
-                                                ?
-                                                <td key={index} >
-                                                    <input style={{ borderColor:'blue' }}onClick={() => this.choiceSeat(`${row}${column}`)} type="checkbox" className="seats input1" id={`${row}${column}`} value={`${row}${column}`} />
-                                                </td>
-                                                :
-                                                <td key={index}>
-                                                    <input onClick={() => this.choiceSeat(`${row}${column}`)} type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
-                                                </td>
-                                                
-                                        )
-                                    })}
-                                </tr>
                                 :
                                 <tr key={index}>
                                     <td>
                                         {row}
                                     </td>
-                                    {seatsColumnsOfS1
-                        .map((column, index) => {
+                                    {seatsColumns.map((column, index) => {
                                         return (
                                             column === ''
                                                 ?
@@ -180,25 +70,20 @@ class SeatBooking extends React.Component {
                                                 <td key={index}>
                                                     <input onClick={() => this.choiceSeat(`${row}${column}`)} type="checkbox" className="seats" id={`${row}${column}`} value={`${row}${column}`} />
                                                 </td>
-                                                
                                         )
                                     })}
-                                </tr>
-                                
-                            })
+                                </tr>)
                     }
                     </tbody>
                 </table>
             );
         };
-    
         return (
             <div>
-                {this.checkAvailableseat}
-                <div >
+                <div>
                     <h1 style={{ color: "black" }}>Lựa chọn chỗ ngồi</h1>
-                    <h4></h4>
-                    <div className='container'>
+                    <h1 style={{ fontSize: '15px' }}>PHIM: Tên phim</h1>
+                    <h1 style={{ fontSize: '15px' }}>Khung giờ chiếu: 12h - 14h</h1>
                     <div className="containerbooking">
                         <div className="w3ls-reg" style={{paddingTop: '0px'}}>
                             <ul className="seat_w3ls">
@@ -206,29 +91,21 @@ class SeatBooking extends React.Component {
 
                                 <li className="smallBox redBox">Ghế đã đặt trước</li>
 
-                                <li className="smallBox emptyBox">Ghế thường</li>
-                                <li className="smallBox emptyBox1" style={{ borderColor: 'pink' }}>Ghế Vip</li>
-                                <li className="smallBox emptyBox2" style={{ borderColor: 'pink' }}>Hàng ghế đôi</li>
+                                <li className="smallBox emptyBox">Các ghế trống</li>
                             </ul>
-                            <div className="seatStructure txt-center" style={{overflowX:'auto', paddingLeft: '80px'}} >
-                                {seatsGeneratorS1()}
+                            <div className="seatStructure txt-center" style={{overflowX:'auto'}}>
+                                {seatsGenerator()}
                                 <div className="screen">
                                     <h2 className="wthree">Đây là màn hình</h2>
                                 </div>
-                                                    
-                                    {renderAuthButton()}
-                               
-                                
+                                <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button>
                             </div>
                         </div>
-                    </div>
-                   
                     </div>
                 </div>
             </div>
         );
     }
 }
-
 
 export default SeatBooking;
