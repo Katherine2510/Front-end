@@ -7,13 +7,14 @@ import '../../css/responsive.css'
 import '../../css/lightbox.min.css'
 import '../../css/bootstrap.min.css'
 
-import film3 from '../../images/KHÓA CHẶT CỬA NÀO SUZUME.png'
+
 
 import axios from 'axios';
 
 export default function ViewFilmDetail(props) {
     const [ViewFilmDetail, setViewFilmDetail] = useState([])
     const { id } = useParams();
+    
     
     
 
@@ -39,7 +40,7 @@ export default function ViewFilmDetail(props) {
          
             <div style={{ marginLeft: '8%' }}>
                 <h1> THÔNG TIN CHI TIẾT </h1>
-                <h4> {ViewFilmDetail.movie?.title}</h4>
+                <h1 style={{ fontSize:'20px',textAlign: 'center' }}> {ViewFilmDetail.movie?.title}</h1>
                
             </div>
             <div className="resort-overview-block">
@@ -53,7 +54,7 @@ export default function ViewFilmDetail(props) {
                         <img
                             alt="image"
                             className="img-responsive"
-                            src={film3}
+                            src={ViewFilmDetail.movie?.image_url}
                         />
                         </a>
                     </div>
@@ -65,15 +66,15 @@ export default function ViewFilmDetail(props) {
                   
                     <p>Mã số phim: {ViewFilmDetail.movie?._id}</p>
                     <p>Mô tả phim: {ViewFilmDetail.movie?.description}</p>
-                    <p>Thời lượng: {ViewFilmDetail.movie?.durationInMins}</p>
-                    <p>Ngày khởi chiều: {ViewFilmDetail.movie?.releaseDate}</p>
+                    <p>Thời lượng: {ViewFilmDetail.movie?.durationInMins} phút</p>
+                    <p>Ngày khởi chiều: {ViewFilmDetail.movie?.releaseDate.substring(0,10)}</p>
                     <p>Đạo diên: {ViewFilmDetail.movie?.director}</p>
                     <p>Diễn viên: {ViewFilmDetail.movie?.actor}</p>
                   
                     </div>
                     <div className="links film-detail">
-                        <a href="">ĐẶT VÉ</a>
-                        <a href=""style={{ marginLeft: '10px' }}>XEM TRAILER</a>
+                        <a href =  {`/datebooking/${ViewFilmDetail.movie?._id}`} >ĐẶT VÉ</a>
+                        <a href = {ViewFilmDetail.movie?.trailer_url} style={{ marginLeft: '10px' }}>XEM TRAILER</a>
                     </div>
                     
                 </div>
@@ -82,8 +83,13 @@ export default function ViewFilmDetail(props) {
                 </div>
                 <div className="clearfix" />
             </div>
+            <div className='container'>
+
+            </div>
+                
+            </div>
     </div>
-</div>
+
 
        
 
