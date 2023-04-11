@@ -4,10 +4,10 @@ import '../css/responsive.css'
 import '../css/lightbox.min.css'
 import '../css/bootstrap.min.css'
 import banner0 from '../images/banner.png'
-import banner1 from '../images/film1.png'
+import banner1 from '../images/film2.png'
 import banner2 from '../images/film2.png'
-import banner3 from '../images/KHÓA CHẶT CỬA NÀO SUZUME.png'
-import banner4 from '../images/film1.png'
+import banner3 from '../images/film2.png'
+import banner4 from '../images/film2.png'
 
 
 
