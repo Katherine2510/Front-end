@@ -1,28 +1,100 @@
 h3 {
-    margin-left: 90px;
+  margin-left: 90px;
 }
+
 #product-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-    font-size: 15px;
-    margin-left: 90px;
-    margin-right: 90px;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 20px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+#product-table td,
+#product-table th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#product-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#product-table tr:hover {
+  background-color: #ddd;
+}
+
+#product-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #697671;
+  color: white;
+}
+
+.actionsBlock {
+  background-color: #838891;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 3px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.detail {
+  font-size: 100px;
+}
+
+.dialog {
+  width: 500px;
+  height: 70%;
+  padding: 30px;
+  text-align: left;
   
-  #product-table td, #product-table th {
-    border: 1px solid #ddd;
-    padding: 5px;
-  }
+}
+.set {
+  margin-left: 50rem;
+}
+
+.button-39 {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   
-  #product-table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #product-table tr:hover {background-color: #ddd;}
-  
-  #product-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #697671;
-    color: white;
-  }
+  font-weight: 600;
+  padding: .75rem .75rem;
+  text-align: center;
+  margin-left: 3.5rem;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-39:hover {
+  background-color: rgb(249,250,251);
+}
+
+.button-39:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-39:focus-visible {
+  box-shadow: none;
+}
+
+.textformat {
+  text-overflow: ellipsis; 
+}
+
