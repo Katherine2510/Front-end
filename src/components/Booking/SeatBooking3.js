@@ -29,9 +29,7 @@ class SeatBooking3 extends React.Component {
            
         })
      
-    }
-    
-    choiceSeat = (seat) => {
+    }choiceSeat = (seat) => {
         if (this.state.selectingSeats.includes(seat) == false) {
             const newBookedSeats = [ ...this.state.selectingSeats, seat ];
             this.setState({
@@ -47,15 +45,7 @@ class SeatBooking3 extends React.Component {
                 }
             
             }
-        } 
-
-      
-       
-        
- 
-    };
- 
-    SelectSeats = () => {
+        } };SelectSeats = () => {
       
         const Selected = this.state.selectingSeats;
         if(Selected.length !== 0)
@@ -66,6 +56,7 @@ class SeatBooking3 extends React.Component {
                  
         }
         else {
+            
             alert('Please Select Seats')
         }
         localStorage.setItem('numberofseats', Selected.length) 

@@ -73,6 +73,8 @@ class SeatBooking extends React.Component {
             localStorage.setItem('seats', this.state.selectingSeats)  
             const Selected = this.state.selectingSeats;   }
         else  {
+            localStorage.setItem('success', true
+            )
             alert('Please Select Seats')
             
         }

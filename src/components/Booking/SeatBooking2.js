@@ -71,6 +71,7 @@ class SeatBooking2 extends Component {
             
         }
         else {
+            localStorage.setItem('success', false)
             alert('Please Select Seats')
         }
         localStorage.setItem('numberofseats', Selected.length) 

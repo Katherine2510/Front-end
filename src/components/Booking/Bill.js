@@ -44,17 +44,10 @@ export default function Bill(props)  {
           throw Error(response.success);
         })
         .then((result) => {
-          console.log(result);
-          if (result.success == true) {
-            seats_id.push(result.successs) 
-            alert("Thanh cong");
-          } else {
-            alert("khong thanh cong");
-          }
+          
         })
         .catch((error) => {
-          console.log("error", error);
-          alert("Lỗi");
+          
         });
       }
       localStorage.setItem('seatsArray', seats_id)
@@ -118,8 +111,8 @@ export default function Bill(props)  {
       var urlencoded = new URLSearchParams();
       urlencoded.append("amount", String(localStorage.getItem('cost')));
       urlencoded.append("showID", String(localStorage.getItem("showID")))
-      urlencoded.append("seats", localStorage.getItem("seatsArray"))
-      urlencoded.append("userID", localStorage.getItem("user"))
+      urlencoded.append("seats",Array["643530650b4c071975007592", "643530650b4c071975007594"] )
+      urlencoded.append("userID", String(localStorage.getItem("user")))
 
       var requestOptions = {
         method: "POST",
@@ -149,17 +142,23 @@ export default function Bill(props)  {
     return (
      <>
       <div className="containerbooking" style={{paddingTop: '0px'}} >
-        <div className="bill" style={{ float: 'right' }}>
+        <div className="bill" >
                         <h1 style={{ fontSize: '30px'}}>Hoá đơn của bạn</h1>
                        <p>Ngày chiếu phim: {cid}</p>
                        <p>Thời gian: {localStorage.getItem("startime")} - {localStorage.getItem("endtime")}</p>
                         <p>Các vị trí đã chọn: {localStorage.getItem('seats')} </p>
                        <p>Số tiền phải trả là :{total_payment(arr)}</p> 
                        <p>{return_ID(arr)}</p>
-                       <button type="submit" className="btn" onClick={()=>{return_ID(arr); toPayment()}}>
-                          BÌNH LUẬN
-                        </button>
-                       <a href="" style={{ paddingLeft:'15px' }}> Chọn lại</a>
+                       <div className="row" style={{ marginLeft: '0px' }}>
+                       <Link onClick={()=>{return_ID(arr); toPayment()}} style={{ paddingLeft:'20%' }}>
+                          THANH TOÁN
+                        </Link>
+                        <Link to ={'/datebooking'} >
+                          QUAY LẠI
+                        </Link>
+                       </div>
+                       
+                       
 
                        
         </div>
