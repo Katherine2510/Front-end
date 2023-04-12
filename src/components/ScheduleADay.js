@@ -40,21 +40,30 @@ export default function ScheduleADay(props)  {
     return (
         <div className="container" style={{ paddingLeft: '10px' }}>
         
-        <h1 className="booking-detail" style={{ fontSize: '25px', float: 'left'}} >Chọn ngày xem phim</h1>
-        <div className="row side-B">
-        <div >
-            {ViewShow.msg}
-            {
-                 ViewShow.listShow._id
-            }
+        <h1 className="booking-detail" style={{ fontSize: '25px', float: 'left'}} >Chọn </h1>
+        <div className="container">
+        <div className=" ">
+          {  
+               ViewShow.listShow?.map((e, i) => (
+                 <div>
+                  <Link to ={`/datebooking/${e.movie._id}/timebooking/${id}/${e.hall.type}`} className="button_book_times"style={{  width: '100%' }} > <h1 style={{ marginLeft: '0px',textAlign: 'left', fontSize: '20px'}}>Phim Đang chiếu: {e.movie.title} </h1>
+                  <h4 style={{ textAlign: 'left', fontSize: '20px'}}>Khung giờ chiếu: {e.startTime.substr(11, 5)} - {e.endTime.substr(11, 5)}</h4>
+                  <h4 style={{ textAlign: 'left' }}>Thời Lượng: {e.movie.durationInMins}</h4>
+                  <h4 style={{ textAlign: 'left' }}>Đạo diễn: {e.movie.director}</h4>
+                  <h4 style={{ textAlign: 'left' }}>Đạo diễn: {e.movie.director}</h4>
+                  </Link>
+
+ 
+             </div>
+             )
+               )    
+ 
+               }
          
           </div>  
           </div>
+          </div>
            
-             
-           
-       
-         </div>
         
        
    

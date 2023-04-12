@@ -21,7 +21,7 @@ export default function Bill(props)  {
       var seats_id = [];
       for (var  i = 0 ; i < arr.length; i++) { 
       var myHeaders = new Headers();
-      myHeaders.append( "Content-Type", "application/x-www-form-urlencoded/json");
+      myHeaders.append( "Content-Type", "application/x-www-form-urlencoded");
      
       var urlencoded = new URLSearchParams();
       urlencoded.append("showID",String(localStorage.getItem('showID')));
@@ -29,13 +29,13 @@ export default function Bill(props)  {
       urlencoded.append ("colunm", 5)
       
       var requestOptions = {
-        method: "POST",
+        method: "GET",
         headers: myHeaders,
         body: urlencoded,
         redirect: "follow",
       };
   
-      fetch("localhost:3001/api/show/findSeatID", requestOptions)
+      fetch("http://localhost:3001/api/show/findSeatID", requestOptions)
         .then((response) => {
           console.log(response);
           if (response.ok) {
@@ -111,7 +111,7 @@ export default function Bill(props)  {
       var urlencoded = new URLSearchParams();
       urlencoded.append("amount", String(localStorage.getItem('cost')));
       urlencoded.append("showID", String(localStorage.getItem("showID")))
-      urlencoded.append("seats",Array["643530650b4c071975007592", "643530650b4c071975007594"] )
+      urlencoded.append("seats", "643530650b4c071975007592" )
       urlencoded.append("userID", String(localStorage.getItem("user")))
 
       var requestOptions = {

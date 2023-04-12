@@ -55,14 +55,7 @@ class SeatBooking2 extends Component {
     };
  
     SelectSeats = () => {
-        const renderAuthButton = () => {
-            if (localStorage.getItem('success') == 'true') {
-                return (<Link to = 'bill'> <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button> </Link>) ;
-            } else {
-                return   <button onClick={() => { this.SelectSeats()}}>Confirm Selection</button>;
-            }
-            }
-       
+      
         const Selected = this.state.selectingSeats;
         if(Selected.length !== 0)
         {
