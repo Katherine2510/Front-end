@@ -70,11 +70,7 @@ export default function FilmList(){
                 <div className="gallery-image" >
                   <img className="img-responsive" src={`${e.image_url}`} style={{objectFit: 'contain'}} />
                   <div className="overlay">
- 
-                    <p>
-                     
-                      
-                    <h4 style={{ color: 'white' }}> 
+                      <p> <h4 style={{ color: 'white' }}> 
                     {e.title} 
                      </h4>
                      </p>

@@ -298,7 +298,7 @@ export default function Seats(props)  {
                         
                         
                             
-                 <button style={{ marginTop: '30px' }} onClick={()=>{CostOfTicket()}}>Accepy</button>
+                 <button style={{ marginTop: '30px', height: '50px' }} onClick={()=>{CostOfTicket()}}>Chấp nhận</button>
                 </div>   
                 
                         

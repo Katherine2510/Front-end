@@ -40,6 +40,7 @@ export default function CommentList(){
           
    
           {CommentList.listRating?.map((e, i) => (
+            
            <div className="container" >
            <h1 className='username' style={{ fontSize:  '15px',float:'left' }}>Người dùng ẩn danh {i + 1} </h1>
            <p style={{ float: 'right',fontSize: '15px' }}>(Đã đánh giá {e.rating_score} sao)</p>

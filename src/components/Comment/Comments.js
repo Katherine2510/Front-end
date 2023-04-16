@@ -65,7 +65,7 @@ class Comments extends Component {
     const binhluan = {
       comment: this.state.comment,
       ratting_score: localStorage.getItem('star'),
-      movie_id: '64172200687bb7943c62d197'
+      movie_id: `${localStorage.getItem('id_film')}`
 
     };
     var myHeaders = new Headers();
@@ -74,7 +74,7 @@ class Comments extends Component {
     myHeaders.append( "Content-Type", "application/x-www-form-urlencoded");
     myHeaders.append(  'Authorization',`Bearer ${localStorage.getItem('token')}` )
     var urlencoded = new URLSearchParams();
-    urlencoded.append("movie", '64172200687bb7943c62d197');
+    urlencoded.append("movie", `${localStorage.getItem('id_film')}`);
     urlencoded.append("comment", this.state.comment);
     urlencoded.append ("rating_score", String(localStorage.getItem('star')))
 
@@ -98,12 +98,12 @@ class Comments extends Component {
         if (result.success == true) {
           alert("Thanh cong");
         } else {
-          alert("khong thanh cong");
+          alert("Không thành công, hãy đăng nhập");
         }
       })
       .catch((error) => {
         console.log("error", error);
-        alert("yes");
+        alert("Không thành công, hãy đăng nhập");
       });
    
   }

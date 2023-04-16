@@ -43,13 +43,13 @@ export default function ViewFilmDetail(props) {
                 <h1 style={{ fontSize:'20px',textAlign: 'center' }}> {ViewFilmDetail.movie?.title}</h1>
                
             </div>
-            <div className="resort-overview-block">
+            <div className="resort-overview-block" style={{ paddingTop: '20px' }}>
             <div className="container">
             <div className="row">
                 <div className="col-md-12 col-sm-6 col-xs-10 ">
                 <div className="side-A2">
                     <div className="product-thumb">
-                    <div className="image" style={{ marginTop: '100px' }}>
+                    <div className="image" style={{ marginTop: '20px' }}>
                         <a href="">
                         <img
                             alt="image"
@@ -75,6 +75,7 @@ export default function ViewFilmDetail(props) {
                     <div className="links film-detail">
                         <a href =  {`/datebooking/${ViewFilmDetail.movie?._id}`} >ĐẶT VÉ</a>
                         <a href = {ViewFilmDetail.movie?.trailer_url} style={{ marginLeft: '10px' }}>XEM TRAILER</a>
+                        <Link to = {`/comment/${ViewFilmDetail.movie?._id}`} style={{ marginLeft: '10px' }} onClick={() => { localStorage.setItem("id_film",ViewFilmDetail.movie?._id) }}>Bình luận</Link>
                     </div>
                     
                 </div>

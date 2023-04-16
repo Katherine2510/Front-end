@@ -187,6 +187,7 @@ const App = () => {
             <div>
              
              <ViewFilmDetail/>
+            
              <CommentList />
              <ScheduleAFilm />
            
@@ -196,6 +197,24 @@ const App = () => {
           </Route>
        
       </Routes>
+      <Routes>
+        <Route
+          path="/comment/:id"
+          element={
+            <div>
+             
+              <Comments/>
+            
+             <CommentList />
+   
+           
+            </div>
+          }
+        >
+          </Route>
+       
+      </Routes>
+    
     
       
       <Routes>
