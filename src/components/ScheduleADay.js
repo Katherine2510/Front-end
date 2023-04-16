@@ -37,7 +37,8 @@ export default function ScheduleADay(props)  {
         .catch(err => console.log(err))
     }
     function ClickToSeat(param){
-            
+    
+
       fetch(
       `http://localhost:3001/api/show/getShowByShowID/${param}`,
       
@@ -74,7 +75,7 @@ export default function ScheduleADay(props)  {
           {  
                ViewShow.listShow?.map((e, i) => (
                  <div>
-                  <Link  onClick={() => {ClickToSeat(e._id); localStorage.setItem("showID", e._id) }}  className="button_book_times"style={{  width: '100%' }} > <h1 style={{ marginLeft: '0px',textAlign: 'left', fontSize: '20px'}}>Phim Đang chiếu: {e.movie.title} </h1>
+                  <Link  onClick={() => {ClickToSeat(e._id); localStorage.setItem("showID", e._id) ; localStorage.setItem("date", e.startTime.substr(0,11)); localStorage.setItem("title", e.movie.title); localStorage.setItem("start", e.startTime.substr(11,8));localStorage.setItem("end", e.endTime.substr(11,8)) }}  className="button_book_times"style={{  width: '100%' }} > <h1 style={{ marginLeft: '0px',textAlign: 'left', fontSize: '20px'}}>Phim Đang chiếu: {e.movie.title} </h1>
                   <h4 style={{ textAlign: 'left', fontSize: '20px'}}>Khung giờ chiếu: {e.startTime.substr(11, 5)} - {e.endTime.substr(11, 5)}</h4>
                   <h4 style={{ textAlign: 'left' }}>Thời Lượng: {e.movie.durationInMins}</h4>
                   <h4 style={{ textAlign: 'left' }}>Đạo diễn: {e.movie.director}</h4>
