@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import ViewFilmDetail from '../components/View/ViewFilmDetail'
 import Popup from "reactjs-popup";
+import ScheduleAFilm from './Booking/ScheduleAFilm';
 
 
 export default function FilmList(){

@@ -380,6 +380,14 @@ ul{
     float: right;
     width: 50%;
 }
+.side-A2{
+    float: left;
+    width: 20%;
+}
+.side-B2{
+    float: right;
+    width: 80%;
+}
 .side-A1{
     float: left;
     width: 50%;

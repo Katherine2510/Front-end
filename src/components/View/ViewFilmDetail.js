@@ -46,10 +46,10 @@ export default function ViewFilmDetail(props) {
             <div className="resort-overview-block">
             <div className="container">
             <div className="row">
-                <div className="col-md-10 col-sm-12 col-xs-10 ">
-                <div className="side-A">
+                <div className="col-md-12 col-sm-6 col-xs-10 ">
+                <div className="side-A2">
                     <div className="product-thumb">
-                    <div className="image">
+                    <div className="image" style={{ marginTop: '100px' }}>
                         <a href="">
                         <img
                             alt="image"
@@ -60,7 +60,7 @@ export default function ViewFilmDetail(props) {
                     </div>
                     </div>
                 </div>
-                <div className='side-B' >
+                <div className='side-B2' >
                     
                     <div col-md-9 col-sm-8 col-xs-12 className='film-detail' >
                   
