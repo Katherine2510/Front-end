@@ -10,6 +10,7 @@ import UpdateUser from "./UpdateUser";
 
 import axios from "axios";
 
+
 export default function Profile(props) {
   const [Profile, setProfile] = useState([]);
   const { token } = useParams();
@@ -21,6 +22,7 @@ export default function Profile(props) {
   function refreshProfile() {
     const ProjectAPI = axios
       .get(`http://localhost:3001/api/user`, {
+        method: "GET",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => setProfile(res.data))
@@ -33,20 +35,38 @@ export default function Profile(props) {
             <div className="inner-wrapper">
              </div>
     </div>*/}
+      <div
+        className="col-md-10
+                 col-sm-12 col-xs-12 remove-padd"
+      ><div style={{ marginLeft: "10%", fontSize: "100" }}>
+          <div style={{ fontSize: 30 }}> THÔNG TIN CÁ NHÂN </div>
 
-      <div style={{ marginLeft: "8%" }}>
-        <h2> THÔNG TIN CÁ NHÂN </h2>
+        </div>
+
       </div>
+
       <div className="resort-overview-block">
         <div className="container">
           <div className="row">
             <div className="col-md-10 col-sm-12 col-xs-10 ">
               <div className="side-A">
                 <div col-md-9 col-sm-8 col-xs-12 className="film-detail">
-                  <p>First Name: {Profile.user?.firstName}</p>
-                  <p>Last Name: {Profile.user?.lastName}</p>
-                  <p>Email: {Profile.user?.email}</p>
-                  <p>Password: {Profile.user?.password}</p>
+                  <div className="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+                    <ul className="list-unstyled nav1 cl-effect-10">
+                      <li>
+                        <a href="/profile/userbooking">
+                          <span>Vé đã đặt</span>
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                  <div >
+                    <div style={{ fontSize: 20 }}>First Name: {Profile.user?.firstName}</div>
+                    <div style={{ fontSize: 20 }}>Last Name: {Profile.user?.lastName}</div>
+                    <div style={{ fontSize: 20 }}>Email: {Profile.user?.email}</div>
+                    <div style={{ fontSize: 20}}>Password: {Profile.user?.password}</div>
+                  </div>
                 </div>
               </div>
               <div

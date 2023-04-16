@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../../css/style-login.css";
-
+import "../../css/table.css";
+import '../../css/bootstrap.min.css';
+import { Link, useParams } from "react-router-dom";
 
 class Register extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class Register extends Component {
       password: "",
     };
   }
-  
+
   setParams = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -20,7 +22,6 @@ class Register extends Component {
     console.log("hello");
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("firstName", this.state.firstName);
@@ -35,25 +36,24 @@ class Register extends Component {
       redirect: "follow",
     };
 
-    fetch(
-        "http://localhost:3001/api/auth/register",
-        requestOptions
-    )
-        .then((response) => {
-            console.log(response);
-            if (response.ok) {
-                return response.json();
-                alert("thanh cong");
-            }
-            throw Error(response.status);
-            alert ("error")
-        });
+    fetch("http://localhost:3001/api/auth/register", requestOptions).then(
+      (response) => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+          alert("thanh cong");
+        }
+        throw Error(response.status);
+        alert("error");
+      }
+    );
     console.log(this.state.firstName);
   };
   render() {
     return (
       <form>
-        <div className="form">
+        <h1>Register</h1>
+        <div className="dialog, set">
           <div className="form-body">
             <div className="username">
               <label className="form__label" for="firstName">
@@ -62,7 +62,7 @@ class Register extends Component {
               <input
                 className="form__input"
                 type="text"
-                name = "firstName"
+                name="firstName"
                 placeholder="First Name"
                 onChange={this.setParams}
               />
@@ -87,7 +87,7 @@ class Register extends Component {
               <input
                 type="email"
                 id="email"
-                name = "email"
+                name="email"
                 className="form__input"
                 placeholder="Email"
                 onChange={this.setParams}
@@ -119,10 +119,18 @@ class Register extends Component {
               />
             </div>
           </div>
-          <div class="footer">
-            <button type="submit" class="btn" onClick={this.register}>
-              Register
+          <div>
+            <button type="button" name="email" onClick={this.register}>
+              REGISTER
             </button>
+          </div>
+          <div className="span-login"> Bạn đã có tài khoản? </div>
+          <div>
+            <Link to="/login">
+              <button type="button" name="email">
+                LOGIN
+              </button>
+            </Link>
           </div>
         </div>
       </form>

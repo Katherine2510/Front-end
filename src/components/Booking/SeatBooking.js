@@ -24,7 +24,7 @@ class SeatBooking extends React.Component {
         redirect:false
     }
     componentDidMount() {
-        axios.get('http://localhost:3001/api/show/getShowByShowID/6435306d0b4c07197500771a').then(res => {
+        axios.get(`http://localhost:3001/api/show/getShowByShowID/${localStorage.getItem('showID')}`).then(res => {
             // console.log(res.data)
             res.data?.show?.seats.map ((e,i) =>{
                 let seatNumber = `${String.fromCharCode(e.row + 64)}${String(e.column)}`
@@ -79,14 +79,7 @@ class SeatBooking extends React.Component {
             
         }
     };
-    checkAvailableseat = () => {
-        const Selected = this.state.selectingSeats;
-        axios.get('http://localhost:3001/api/show/getShowByShowID/642d6f494f2df87960df936c')
-        .then (
-            
-            )
-        
-    }
+    
     
  
  

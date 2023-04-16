@@ -48,12 +48,7 @@ const Admin = () => {
                               sách các bộ phim đang chiếu
                             </Link>
                           </li>
-                          <li>
-                            <a href="/admin/comingsoon">
-                              <i className="fa fa-caret-right"> </i>Xem danh
-                              sách các bộ phim sắp chiếu
-                            </a>
-                          </li>
+                          
                           <li>
                           <a href="/admin/show">
                               <i className="fa fa-caret-right"> </i>Xem danh
@@ -63,37 +58,7 @@ const Admin = () => {
                         </ul>
                         <div className="clearfix"> </div>
                       </div>
-                      <div className="blog-list">
-                        <h4>USER MANAGEMENT</h4>
-                        <ul>
-                          <li>
-                            <div>
-                              <a
-                                href=""
-                                data-toggle="modal"
-                                data-target="#modalAddUserForm"
-                              >
-                                <i className="fa fa-caret-right"></i>Thêm tài
-                                khoản mới
-                              </a>
-                            </div>
-                          </li>
-
-                          <li>
-                            <a>
-                              <i className="fa fa-caret-right"> </i>Xoá tài
-                              khoản
-                            </a>
-                          </li>
-                          <li>
-                            <a>
-                              <i className="fa fa-caret-right"> </i>Thay đổi
-                              thông tin tài khoản
-                            </a>
-                          </li>
-                        </ul>
-                        <div className="clearfix"> </div>
-                      </div>
+                    
                     </aside>
                   </div>
                 </div>

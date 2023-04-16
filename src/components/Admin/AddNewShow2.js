@@ -6,7 +6,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import DatePicker from "react-datepicker";
+
 import "../../css/table.css";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
@@ -18,18 +18,20 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import AddNewShow3 from "./AddNewShow3";
 
+
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import moment from "moment";
+
 
 class AddNewShow2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rows: [],
+      openAddNew3: false,
       _id: "",
+      rows: [],
     };
   }
-
+  idd = localStorage.getItem("_id");
   setParams = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -49,26 +51,30 @@ class AddNewShow2 extends Component {
     this.setState({
       openAddNew3: true,
     });
+    
   };
-  handleClose3 = () => {
+  handleClose = () => {
     this.setState({
-      openAddNew3: false,
+    openAddNew3: false,
+      
     });
+    
   };
   actionsBlock = (item) => {
     return (
       <button
         type="button"
         onClick={() => {
-          this.handleOpenAddNew3(item);
+          this.handleOpenAddNew3();
+          //this.handleClose();
           localStorage.setItem("Movie_id", item._id);
+          //alert("onclick")
         }}
       >
         Chon
       </button>
     );
   };
-
   render() {
     return (
       <div>
@@ -98,17 +104,17 @@ class AddNewShow2 extends Component {
           </TableContainer>
           <Button
             color="primary"
-            onClick={this.props.handleClose2}
+            onClick={this.props.handleClose}
             className="modal-footer d-flex justify-content-center"
           >
             Cancel
           </Button>
         </Dialog>
         {this.state.openAddNew3 ? (
-          <AddNewShow2
+          <AddNewShow3
             rows={this.state.rows}
             open={this.state.openAddNew3}
-            handleClose2={this.handleClose2}
+            handleClose={this.handleClose}
           />
         ) : null}
       </div>

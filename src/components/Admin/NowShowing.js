@@ -100,13 +100,12 @@ class NowShowing extends Component {
 
   callApiDeleteAccount = () => {
     var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     myHeaders.append(
       "Authorization",
       `Bearer ${localStorage.getItem("token")}`
     );
     var urlencoded = new URLSearchParams();
-    urlencoded.append("title", this.state.title);
+    urlencoded.append("_id", this.state.selectedItem._id);
 
     var requestOptions = {
       method: "DELETE",
@@ -118,16 +117,26 @@ class NowShowing extends Component {
     fetch(
       `http://localhost:3001/api/movie/${this.state.selectedItem._id}`,
       requestOptions
-    ).then((response) => {
-      console.log(response);
-      if (response.ok) {
-        return response.json();
-      }
-      throw Error(response.status);
-    });
+    )
+      .then((response) => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+          alert("thanhcong");
+        }
+        throw Error(response.status);
+      })
+      .then((result) => {
+        console.log(result);
+        this.state.firstName("");
+        this.state.lastName("");
+        alert("thanh cong");
+      })
+      .catch((error) => {
+        console.log("error", error);
+        alert("wrong");
+      });
   };
-
-  
 
   loadfilm = async () => {
     const result = await axios.get(

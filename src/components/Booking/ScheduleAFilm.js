@@ -14,7 +14,7 @@ const roleType = {
     //thêm các role vào đây,
 }
 
-const TimeBooking2 = () => {
+const ScheduleAFilm = () => {
         const navigate = useNavigate();
         const {cid} = useParams();
         const [ViewTime, setViewTime] = useState([])
@@ -25,7 +25,7 @@ const TimeBooking2 = () => {
         }, [cid]);
 
         function refreshViewTime() {
-        const ProjectAPI = axios.get(`http://localhost:3001/api/show/getShowByMovieID/${id}/${cid}`
+        const ProjectAPI = axios.get(`http://localhost:3001/api/show/getShowByMovieID/${id}`
         )
             .then(result => setViewTime(result.data))
             .catch(err => console.log(err))
@@ -46,33 +46,10 @@ const TimeBooking2 = () => {
             })
             .then((result) => {
                 console.log(result);
-                localStorage.removeItem("startime")
-                localStorage.setItem("startime", result?.show?.startTime.substr(11,5));
-                localStorage.removeItem("endtime")
-                localStorage.setItem("endtime", result?.show?.endTime.substr(11,5));
-                localStorage.removeItem("hall")
-                localStorage.setItem("hall", result?.show?.hall);
-             
-                switch (result?.show?.hall.type) {
-                    case roleType.S:
-                    navigate(`/datebooking/${id}/timebooking/${cid}/S`);
-                    localStorage.setItem('kindofhall', 'S')
-                    break;
-
-                    case roleType.L:
-                    navigate(`/datebooking/${id}/timebooking/${cid}/L`);
-                    console.log(result)
-                    localStorage.setItem('kindofhall', 'L')
-                    break;
-
-                    case roleType.M:
-                    navigate(`/datebooking/${id}/timebooking/${cid}/M`);
-                    console.log(result)
-                    localStorage.setItem('kindofhall', 'M')
-                    break;
-                    //case //viết nốt vào đây là đc nè
-                   
-                }
+               
+                localStorage.setItem("hallseat", result?.show?.hall.numberRow);
+                navigate(`/booking/${localStorage.getItem('showID')}`)
+                
                 //em thêm swith case vào đây theo từng role
                 // dùng useNavigate để chuyển trang
             })
@@ -92,8 +69,8 @@ const TimeBooking2 = () => {
           {     
                ViewTime.listShow?.map((e, i) => (
                  <div>
-                    
-                  <Link to ={""} className="button_book_times" onClick={() => {ClickToSeat(e._id); localStorage.setItem("showID", e._id); localStorage.setItem("date", e.startTime.substr(0,11)); localStorage.setItem("title", e.movie.title); localStorage.setItem("start", e.startTime.substr(11,8));localStorage.setItem("end", e.endTime.substr(11,8)) }} >
+                    <h1 style={{  fontSize: '30px', marginLeft: '0px' }}>{e.startTime.substr(0,10)}</h1>
+                  <Link  className="button_book_times" onClick={() => {ClickToSeat(e._id); localStorage.setItem("showID", e._id) ; localStorage.setItem("date", e.startTime.substr(0,11)); localStorage.setItem("title", e.movie.title); localStorage.setItem("start", e.startTime.substr(11,8));localStorage.setItem("end", e.endTime.substr(11,8))}} >
                {e.startTime.substr(11, 5)} - {e.endTime.substr(11, 5)}
  
              </Link>
@@ -116,4 +93,4 @@ const TimeBooking2 = () => {
     );
   }
 
-  export default TimeBooking2;
+  export default ScheduleAFilm;

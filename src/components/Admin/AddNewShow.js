@@ -6,7 +6,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import DatePicker from "react-datepicker";
+
 import "../../css/table.css";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
@@ -17,9 +17,11 @@ import TableContainer from "@material-ui/core/TableContainer";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import AddNewShow2 from "./AddNewShow2";
+import AddNewShow3 from "./AddNewShow3";
+import Show from "./Show";
 
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import moment from "moment";
+
 
 class AddNewShow extends Component {
   constructor(props) {
@@ -51,7 +53,7 @@ class AddNewShow extends Component {
       openAddNew2: true,
     });
   };
-  handleClose2 = () => {
+  handleClose = () => {
     this.setState({
     openAddNew2: false,
       
@@ -65,6 +67,7 @@ class AddNewShow extends Component {
         onClick={() => {
           this.handleOpenAddNew2(item);
           localStorage.setItem("Hall_id", item._id);
+          //alert("onclick")
         }}
       >
         Chon

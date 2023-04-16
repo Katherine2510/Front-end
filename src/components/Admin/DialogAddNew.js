@@ -6,11 +6,11 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import DatePicker from "react-datepicker";
+
 import "../../css/table.css";
 
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import moment from "moment";
+
 
 class DialogAddNew extends Component {
   constructor(props) {
@@ -51,10 +51,7 @@ class DialogAddNew extends Component {
     const Example = () => {
       const [startDate, setStartDate] = useState(new Date());
       return (
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
+        {}
       );
     };
     var requestOptions = {

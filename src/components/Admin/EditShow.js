@@ -10,7 +10,7 @@ import TextField from "@material-ui/core/TextField";
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 
-class DialogEditItem extends Component {
+class EditShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -259,4 +259,4 @@ class DialogEditItem extends Component {
     );
   }
 }
-export default DialogEditItem;
+export default EditShow;

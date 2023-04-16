@@ -8,35 +8,20 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 import "../../css/table.css";
-import TableHead from "@material-ui/core/TableHead";
-import TableBody from "@material-ui/core/TableBody";
-import Table from "@material-ui/core/Table";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Paper from "@material-ui/core/Paper";
-import AddNewShow4 from "./AddNewShow4";
+
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 
-class AddNewShow3 extends Component {
+class AddNewShow4 extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      openAddNew4: false,
-      hall: localStorage.getItem("Hall_id"),
-      movie: localStorage.getItem("Movie_id"),
-      startTime: "",
-      endTime: "",
-    };
+    
   }
-  refresh = () => {
-    window.location.reload();
-  };
+
   setParams = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
   callApiCreateShow = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -64,89 +49,36 @@ class AddNewShow3 extends Component {
       }
       throw Error(response.status);
     });
-
-    //this.refresh();
   };
-  handleOpenAddNew4 = () => {
-    this.setState({
-      openAddNew4: true,
-    });
-  };
-  handleClose = () => {
-    this.setState({
-      openAddNew4: false,
-    });
-  };
-
   render() {
     return (
       <div>
         <Dialog open={this.props.open}>
           <form className="dialog">
+            <div className="modal-header text-center">
+              <h4 className="modal-title w-100 font-weight-bold">THÊM SHOW</h4>
+            </div>
             <div className="modal-body mx-3">
               <div className="">
+                
                 <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Phòng
-                </label>
-
-                <input
-                  value={localStorage.getItem("Hall_id")}
-                  name="hall"
-                  type="text"
-                  id="defaultForm-email"
-                  className="form-control "
-                  onChange={this.setParams}
-                />
-
-                <i className=" prefix grey-text" />
                 <label
                   data-error="wrong"
                   data-success="right"
                   htmlFor="defaultForm-pass"
                 >
-                  Phim
+                  Thời gian bắt đầu
                 </label>
 
                 <input
-                  value={localStorage.getItem("Movie_id")}
-                  name="movie"
+                  value={localStorage.getItem("startTime")}
+                  name="durationInMins"
                   type="text"
                   id="defaultForm-pass"
                   className="form-control "
                   onChange={this.setParams}
                 />
-              </div>
-            </div>
-            <div className="modal-header text-center">
-              <h4 className="modal-title w-100 font-weight-bold">
-                Thời gian chiếu
-              </h4>
-            </div>
-            <div className="modal-body mx-3">
-              <div className="">
                 <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Thời gian bắt đầu
-                </label>
-                <input
-                  id="start"
-                  name="startTime"
-                  type="text"
-                  id="defaultForm-email"
-                  className="form-control "
-                  onChange={this.setParams}
-                />
-
-                <i className=" prefix grey-text" />
                 <label
                   data-error="wrong"
                   data-success="right"
@@ -156,8 +88,8 @@ class AddNewShow3 extends Component {
                 </label>
 
                 <input
-                  id="end"
-                  name="endTime"
+                  value={localStorage.getItem("endTime")}
+                  name="releaseDate"
                   type="text"
                   id="defaultForm-pass"
                   className="form-control "
@@ -171,6 +103,7 @@ class AddNewShow3 extends Component {
                 onClick={this.callApiCreateShow}
               >
                 ADD
+                
               </button>
 
               <Button
@@ -183,15 +116,8 @@ class AddNewShow3 extends Component {
             </div>
           </form>
         </Dialog>
-        {this.state.openAddNew4 ? (
-          <AddNewShow4
-            rows={this.state.rows}
-            open={this.state.openAddNew4}
-            handleClose={this.handleClose}
-          />
-        ) : null}
       </div>
     );
   }
 }
-export default AddNewShow3;
+export default AddNewShow4;

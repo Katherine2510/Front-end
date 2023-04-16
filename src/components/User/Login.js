@@ -53,6 +53,7 @@ const Login = () => {
         console.log(result);
         localStorage.setItem("success", result.success);
         localStorage.setItem("token", result.token);
+        localStorage.setItem("user", result.user._id);
         toast.success(true);
         setPassword("");
         setEmail("");

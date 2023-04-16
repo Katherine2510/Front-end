@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Call API them san pham cua nha may
 class UpdateUser extends Component {
@@ -8,6 +9,9 @@ class UpdateUser extends Component {
       firstName: "",
       lastName: "",
     };
+  }
+  yourFunctionHere() {
+    this.props.navigate("profile");
   }
 
   setParams = (event) => {
@@ -46,12 +50,12 @@ class UpdateUser extends Component {
         this.state.firstName("");
         this.state.lastName("");
         alert("thanh cong");
-        
       })
       .catch((error) => {
         console.log("error", error);
         alert("wrong");
       });
+      
   };
 
   render() {
@@ -109,7 +113,7 @@ class UpdateUser extends Component {
         <div className="modal-footer d-flex justify-content-center">
           <button
             className="btn btn-default"
-            onClick={this.callApiUpdateAccount}
+            onClick={(this.callApiUpdateAccount)}
           >
             OK
           </button>

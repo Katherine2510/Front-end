@@ -20,7 +20,7 @@ import Register from './components/User/Register';
 import TimeBooking from './components/Booking/TimeBooking';
 import DateBooking from './components/Booking/DateBooking';
 import ViewNameFilm from './components/View/ViewNameFilm';
-
+import Profile from './components/User/Profile';
 import SeatBooking2 from './components/Booking/SeatBooking2';
 import SeatBooking3 from './components/Booking/SeatBooking3';
 import TimeBooking2 from './components/Booking/TimeBooking2';
@@ -31,17 +31,42 @@ import StarRatting from './components/Comment/StarRatting';
 import CommentList from './components/Comment/CommentList';
 import Schedule from './components/Schedule';
 import ScheduleADay from './components/ScheduleADay';
+import ScheduleAFilm from './components/Booking/ScheduleAFilm';
+import Admin from './components/Admin/Admin';
+import Seats from './components/SeatBooking/Seats';
+import SuccessBooking from './components/Booking/SuccessBooking';
+import NowShowing from "./components/Admin/NowShowing";
+import Comingsoon from "./components/Admin/Comingsoon";
+import Show from "./components/Admin/Show";
+
+import UpdateUser from "./components/User/UpdateUser";
+import UpdatePassword from "./components/User/UpdatePassword";
+import UserBooking from "./components/User/UserBooking";
 const App = () => {
   return (
     
   <>
       <Header />
+    
       <Routes>
         <Route
           path="/"
           element={
             <div>
               <HeaderFilm/>
+           
+            </div>
+          }
+        >
+          </Route>
+       
+      </Routes>
+      <Routes>
+        <Route
+          path="/booking/:id"
+          element={
+            <div>
+              <Seats/>
            
             </div>
           }
@@ -116,6 +141,7 @@ const App = () => {
           </Route>
        
       </Routes>
+      
       <Routes>
         <Route
           path="/intro"
@@ -129,6 +155,18 @@ const App = () => {
           </Route>
        
       </Routes>
+      <Routes>
+        <Route
+        path='/success'
+        element={
+          <div>
+            <SuccessBooking/>
+          </div>
+        }
+        >
+        </Route>
+      </Routes>
+
       <Routes>
         <Route
           path="/news"
@@ -150,6 +188,7 @@ const App = () => {
              
              <ViewFilmDetail/>
              <CommentList />
+             <ScheduleAFilm />
            
             </div>
           }
@@ -157,36 +196,8 @@ const App = () => {
           </Route>
        
       </Routes>
-      <Routes>
-      <Route
-          path="/seatbooking"
-          element={
-            <div>
-             <SeatBooking/>
-            
-           
-            </div>
-          }
-        >
-          </Route>
-       
-      </Routes>
-      <Routes>
-        <Route
-          path="/datebooking/:id"
-          element={
-            <div>
-              
-              <ViewNameFilm/>
-              <DateBooking/>
-             
-           
-            </div>
-          }
-        >
-          </Route>
-       
-      </Routes>
+    
+      
       <Routes>
         <Route
           path="/schedule"
@@ -211,52 +222,8 @@ const App = () => {
           </Route>
        
       </Routes>
-      <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid"
-                    element={
-                        <div>   
-                          
-                          <ViewNameFilm/>  
-                          <DateBooking/>
-                        <TimeBooking2/>
-                     
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/S"
-                    element={
-                        <div> 
-                          <ViewNameFilm/>  
-                          <DateBooking/>
-                          <TimeBooking2/>
-                          <SeatBooking/>
-                       
-                      
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/S/bill"
-                    element={
-                        <div> 
-                          <ViewNameFilm />
-                          <Bill/>
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
+     
+          
                 <Routes>
                     <Route
                     path="/comment1"
@@ -270,67 +237,7 @@ const App = () => {
                     </Route>
                 
                 </Routes>
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/L/bill"
-                    element={
-                        <div> 
-                          <ViewNameFilm />
-                          <Bill/>
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/M/bill"
-                    element={
-                        <div> 
-                          <ViewNameFilm />
-                          <Bill/>
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                
-
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/M"
-                    element={
-                        <div> 
-                          <ViewNameFilm/>  
-                          <DateBooking/>
-                        <TimeBooking2/>
-                        <SeatBooking2/>
-                     
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                <Routes>
-                    <Route
-                    path="/datebooking/:id/timebooking/:cid/L"
-                    element={
-                        <div> 
-                          <ViewNameFilm/>  
-                          <DateBooking/>
-                        <TimeBooking2/>
-                        <SeatBooking3/>
-                      
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-                <Routes>
+               <Routes>
                     <Route
                     path="/comments"
                     element={
@@ -354,6 +261,92 @@ const App = () => {
                     </Route>
                 
                 </Routes>
+                <Routes>
+        <Route
+          path="/profile"
+          element={
+            <div>
+              <Profile />
+            </div>
+          }
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/admin"
+          element={
+            <div>
+              <Admin />
+            </div>
+          }
+        ></Route>
+      </Routes>
+
+      <Routes>
+        <Route
+          path="/admin/nowshowing"
+          element={
+            <div>
+              <Admin />
+              <NowShowing />
+            </div>
+          }
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/admin/comingsoon"
+          element={
+            <div>
+              <Admin />
+              <Comingsoon />
+            </div>
+          }
+        ></Route>
+      </Routes>
+
+      <Routes>
+        <Route
+          path="/admin/show"
+          element={
+            <div>
+              <Admin />
+              <Show />
+            </div>
+          }
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/profile/updateuser"
+          element={
+            <div>
+              <UpdateUser />
+            </div>
+          }
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/profile/updatepassword"
+          element={
+            <div>
+              <UpdatePassword />
+            </div>
+          }
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/profile/userbooking"
+          element={
+            <div>
+              <UserBooking />
+            </div>
+          }
+        ></Route>
+      </Routes>
+
                 
     
     

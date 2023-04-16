@@ -380,6 +380,14 @@ ul{
     float: right;
     width: 50%;
 }
+.side-A1{
+    float: left;
+    width: 50%;
+}
+.side-B1{
+    float: right;
+    width: 45%;
+}
 .image img {
     margin-left: auto;
     margin-right: auto;

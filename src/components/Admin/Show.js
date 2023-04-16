@@ -15,8 +15,8 @@ import Paper from "@material-ui/core/Paper";
 //import EditIcon from "@mui/icons-material/Edit";
 import AddNewShow from "./AddNewShow";
 import AddNewShow2 from "./AddNewShow2";
-import DialogAlertRemove from "./DialogAlertRemove";
-import DialogEditItem from "./DialogEditItem ";
+import DeleteShow from "./DeleteShow";
+import EditShow from "./EditShow";
 import axios from "axios";
 
 class NowShowing extends Component {
@@ -25,7 +25,7 @@ class NowShowing extends Component {
     this.state = {
       rows: [],
       openEditItem: false,
-      openAlertRemove: false,
+      openDeleteShow: false,
       openAddNew: false,
       selectedItem: null,
     };
@@ -52,7 +52,7 @@ class NowShowing extends Component {
     });
   };
 
-  handleClickOpen = (item) => {
+  handleClickOpens = (item) => {
     this.setState({
       openEditItem: true,
       selectedItem: item,
@@ -65,9 +65,9 @@ class NowShowing extends Component {
       return 1;
     } else return false;
   };
-  handleDeleteItem = (item) => {
+  handleDeleteItems = (item) => {
     this.setState({
-      openAlertRemove: true,
+      openDeleteShow: true,
       selectedItem: item,
     });
   };
@@ -75,11 +75,13 @@ class NowShowing extends Component {
   handleClose = () => {
     this.setState({
       openEditItem: false,
-      openAlertRemove: false,
+      openDeleteShow: false,
       openAddNew: false,
       selectedItem: null,
     });
-    {localStorage.removeItem("Hall_id")}
+    {
+      localStorage.removeItem("Hall_id");
+    }
   };
 
   handleChange = (event, target) => {
@@ -108,6 +110,7 @@ class NowShowing extends Component {
       `Bearer ${localStorage.getItem("token")}`
     );
     var urlencoded = new URLSearchParams();
+    urlencoded.append("_id", this.state._id);
     urlencoded.append("title", this.state.title);
 
     var requestOptions = {
@@ -120,13 +123,25 @@ class NowShowing extends Component {
     fetch(
       `http://localhost:3001/api/show/${this.state.selectedItem._id}`,
       requestOptions
-    ).then((response) => {
-      console.log(response);
-      if (response.ok) {
-        return response.json();
-      }
-      throw Error(response.status);
-    });
+    )
+      .then((response) => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+          alert("thanhcong");
+        }
+        throw Error(response.status);
+      })
+      .then((result) => {
+        console.log(result);
+        this.state.firstName("");
+        this.state.lastName("");
+        alert("thanh cong");
+      })
+      .catch((error) => {
+        console.log("error", error);
+        alert("wrong");
+      });
   };
 
   callApiEditAccount = () => {
@@ -163,9 +178,7 @@ class NowShowing extends Component {
     });
   };
 
-  
-
-  //Xác nhận tương ứng với các hoạt động openEditItem và openAlertRemove
+  //Xác nhận tương ứng với các hoạt động openEditItem và openDeleteShow
   handleSubmit = (newOne) => {
     let rows = this.state.rows;
     // Edit
@@ -187,7 +200,7 @@ class NowShowing extends Component {
       }));
     }
     // Delete
-    if (this.state.openAlertRemove) {
+    if (this.state.openDeleteShow) {
       this.callApiDeleteShow();
       {
         this.refresh();
@@ -209,8 +222,8 @@ class NowShowing extends Component {
   actionsBlock = (item) => {
     return (
       <div className="actionsBlock">
-        <Button onClick={() => this.handleClickOpen(item)}>Edit</Button>
-        <Button onClick={() => this.handleDeleteItem(item)}>Delete</Button>
+        <Button onClick={() => this.handleClickOpens(item)}>Edit</Button>
+        <Button onClick={() => this.handleDeleteItems(item)}>Delete</Button>
       </div>
     );
   };
@@ -232,16 +245,16 @@ class NowShowing extends Component {
                   style={{ fontSize: "20px !important" }}
                 >
                   <TableCell style={{ width: "5%" }}>STT</TableCell>
-                  <TableCell >Tên phim</TableCell>
+                  <TableCell>Tên phim</TableCell>
                   <TableCell>Thời gian bắt đầu</TableCell>
                   <TableCell>Thời gian kết thúc</TableCell>
                   <TableCell>Sảnh</TableCell>
-                 
+
                   <TableCell style={{ width: "5%" }}>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody className="detail">
-              {this.state.rows.listShow?.map((row, i) => (
+                {this.state.rows.listShow?.map((row, i) => (
                   <TableRow key={row.id}>
                     <TableCell>{i + 1}</TableCell>
                     <TableCell>{row.movie.title}</TableCell>
@@ -255,7 +268,7 @@ class NowShowing extends Component {
             </Table>
           </TableContainer>
           {this.state.openEditItem ? (
-            <DialogEditItem
+            <EditShow
               open={this.state.openEditItem}
               selectedItem={this.state.selectedItem}
               checkName={this.checkName}
@@ -265,9 +278,9 @@ class NowShowing extends Component {
               handleSubmit={this.handleSubmit}
             />
           ) : null}
-          {this.state.openAlertRemove ? (
-            <DialogAlertRemove
-              open={this.state.openAlertRemove}
+          {this.state.openDeleteShow ? (
+            <DeleteShow
+              open={this.state.openDeleteShow}
               selectedItem={this.state.selectedItem}
               handleClose={this.handleClose}
               handleSubmit={this.handleSubmit}

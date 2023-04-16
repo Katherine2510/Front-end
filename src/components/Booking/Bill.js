@@ -21,12 +21,12 @@ export default function Bill(props)  {
       var seats_id = [];
       for (var  i = 0 ; i < arr.length; i++) { 
       var myHeaders = new Headers();
-      myHeaders.append( "Content-Type", "application/x-www-form-urlencoded");
+      myHeaders.append( "Content-Type", "application/x-www-form-urlencoded/json");
      
       var urlencoded = new URLSearchParams();
       urlencoded.append("showID",String(localStorage.getItem('showID')));
-      urlencoded.append("row",5);
-      urlencoded.append ("colunm", 5)
+      urlencoded.append("row", Number(5));
+      urlencoded.append ("colunm", Number(5))
       
       var requestOptions = {
         method: "GET",
@@ -121,7 +121,7 @@ export default function Bill(props)  {
         redirect: "follow",
       };
   
-      fetch("http://localhost:3001/api/payment/create_payment_url", requestOptions)
+      fetch("http://localhost:3001/api/payment/create_payment_url/", requestOptions)
         .then((response) => {
           console.log(response);
           if (response.ok) {
@@ -131,7 +131,7 @@ export default function Bill(props)  {
         })
         .then((result) => {
           console.log(result.success);
-          window.location.href = `${result.vnpUrl}`
+          window.open(`${result.vnpUrl}`).focus();
           
         })
         .catch((error) => {
@@ -144,7 +144,8 @@ export default function Bill(props)  {
       <div className="containerbooking" style={{paddingTop: '0px'}} >
         <div className="bill" >
                         <h1 style={{ fontSize: '30px'}}>Hoá đơn của bạn</h1>
-                       <p>Ngày chiếu phim: {cid}</p>
+                        <p>Phim: {localStorage.getItem("movie_title")}</p>
+                       <p>Ngày chiếu phim: {localStorage.getItem('date')}</p>
                        <p>Thời gian: {localStorage.getItem("startime")} - {localStorage.getItem("endtime")}</p>
                         <p>Các vị trí đã chọn: {localStorage.getItem('seats')} </p>
                        <p>Số tiền phải trả là :{total_payment(arr)}</p> 
@@ -153,7 +154,7 @@ export default function Bill(props)  {
                        <Link onClick={()=>{return_ID(arr); toPayment()}} style={{ paddingLeft:'20%' }}>
                           THANH TOÁN
                         </Link>
-                        <Link to ={'/datebooking'} >
+                        <Link to ={`/datebooking/${id}`} >
                           QUAY LẠI
                         </Link>
                        </div>
