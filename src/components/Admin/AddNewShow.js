@@ -62,15 +62,14 @@ class AddNewShow extends Component {
   };
   actionsBlock = (item) => {
     return (
-      <button
+      <button style={{ float: 'left'}}
         type="button"
         onClick={() => {
           this.handleOpenAddNew2(item);
           localStorage.setItem("Hall_id", item._id);
           //alert("onclick")
         }}
-      >
-        Chon
+      >CHỌN
       </button>
     );
   };
@@ -78,8 +77,8 @@ class AddNewShow extends Component {
     return (
       <div>
         <Dialog open={this.props.open}>
-          <TableContainer component={Paper}>
-            <Table>
+          <TableContainer component={Paper} style={{ width: '480px'}}>
+            <Table >
               <TableHead>
                 <TableRow
                   className="detail"
@@ -95,7 +94,7 @@ class AddNewShow extends Component {
                   <TableRow key={row.id}>
                     <TableCell>{i + 1}</TableCell>
                     <TableCell>{row.name}</TableCell>
-                    <TableCell>{this.actionsBlock(row)}</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>{this.actionsBlock(row)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

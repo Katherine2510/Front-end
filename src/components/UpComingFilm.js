@@ -3,9 +3,10 @@ import '../css/style.css'
 import '../css/responsive.css'
 import '../css/lightbox.min.css'
 import '../css/bootstrap.min.css'
-import film1 from '../images/u_c_film1.png'
-import film2 from '../images/u_c_film2.png'
-import film3 from '../images/u_c_film1.png'
+import film1 from '../images/u_c_film2.png'
+import film2 from '../images/u_c_film1.png'
+import film3 from '../images/u_c_film3.png'
+import film4 from '../images/u_c_film4.png'
 import {Link} from "react-router-dom"
 
 
@@ -36,15 +37,15 @@ const UpComingFilm =() => {
                   <div className="overlay">
                     <a
                       className="info pop example-image-link img-responsive"
-                      href={film2}
+                      href={film1}
                       data-lightbox="example-1"
                     >
-                      <i className="fa fa-search" aria-hidden="true" />
+                 
                       
                     </a>
                     <i className="button_book_tickets" aria-hidden="true">ĐẶT VÉ</i>
                     <p>
-                      <a href="">Cuộc chiến bất tử</a>
+                      <a href="">CHUYỆN XÓM TUI: CON NHÓT MÓT CHỒNG</a>
                     </p>
                   </div>
                 </div>
@@ -56,15 +57,15 @@ const UpComingFilm =() => {
                   <div className="overlay">
                     <a
                       className="info pop example-image-link img-responsive"
-                      href={film1}
+                      href={film2}
                       data-lightbox="example-1"
                     >
-                      <i className="fa fa-search" aria-hidden="true" />
+                 
                       
                     </a>
                     <i className="button_book_tickets" aria-hidden="true">ĐẶT VÉ</i>
                     <p>
-                      <a href="">Thanh gươm diệt quỷ</a>
+                      <a href="">NGƯỜI NHỆN: DU HÀNH VŨ TRỤ NHỆN</a>
                     </p>
                   </div>
                 </div>
@@ -79,31 +80,31 @@ const UpComingFilm =() => {
                       href={film3}
                       data-lightbox="example-1"
                     >
-                      <i className="fa fa-search" aria-hidden="true" />
+                 
                      
                     </a>
                     <i className="button_book_tickets" aria-hidden="true">ĐẶT VÉ</i>
                     <p>
-                      <a href="">Tri kỷ</a>
+                      <a href="">QUỲNH HOA NHẤT DẠ</a>
                     </p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div className="gallery-image" style={{width: '100%', height: '100%'}}>
-                  <img className="img-responsive" src={film1} style={{width: '100%', height: '100%'}}/>
+                  <img className="img-responsive" src={film4} style={{width: '100%', height: '100%'}}/>
                   <div className="overlay">
                     <a
                       className="info pop example-image-link img-responsive"
-                      href={film1}
+                      href={film4}
                       data-lightbox="example-1"
                     >
-                      <i className="fa fa-search" aria-hidden="true" />
+                 
                      
                     </a>
                     <i className="button_book_tickets" aria-hidden="true">ĐẶT VÉ</i>
                     <p>
-                      <a href="">Thanh gươm diệt quỷ</a>
+                      <a href="">MÓNG VUỐT</a>
                     </p>
                   </div>
                 </div>

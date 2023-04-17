@@ -11,7 +11,6 @@ import "../../css/table.css";
 
 //import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
-
 class DialogAddNew extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +21,8 @@ class DialogAddNew extends Component {
       releaseDate: "",
       director: "",
       actor: "",
-      image_url: "",
-      trailer_url: "",
+      url_image: "",
+      url_trailer: "",
     };
   }
 
@@ -45,14 +44,12 @@ class DialogAddNew extends Component {
     urlencoded.append("releaseDate", this.state.releaseDate);
     urlencoded.append("director", this.state.director);
     urlencoded.append("actor", this.state.actor);
-    urlencoded.append("image_url", this.state.image_url);
-    urlencoded.append("trailer_url", this.state.trailer_url);
+    urlencoded.append("url_image", this.state.url_image);
+    urlencoded.append("url_trailer", this.state.url_trailer);
 
     const Example = () => {
       const [startDate, setStartDate] = useState(new Date());
-      return (
-        {}
-      );
+      return {};
     };
     var requestOptions = {
       method: "POST",
@@ -73,11 +70,11 @@ class DialogAddNew extends Component {
   };
   render() {
     return (
-      <div>
-        <Dialog open={this.props.open}>
-          <form className="dialog">
+      <div  >
+        <Dialog open={this.props.open} >
+          <form className="dialog" style={{ width:'700px' }}>
             <div className="modal-header text-center">
-              <h4 className="modal-title w-100 font-weight-bold">THÊM PHIM</h4>
+              <h1 style={{ fontSize: '30px' }}>THÊM PHIM</h1>
               <button
                 type="button"
                 className="submit-btn"
@@ -95,7 +92,7 @@ class DialogAddNew extends Component {
                   data-success="right"
                   htmlFor="defaultForm-email"
                 >
-                  Title
+                  Tên phim
                 </label>
                 <input
                   name="title"
@@ -111,7 +108,7 @@ class DialogAddNew extends Component {
                   data-success="right"
                   htmlFor="defaultForm-pass"
                 >
-                  Description
+                  Mô tả
                 </label>
 
                 <input
@@ -128,7 +125,7 @@ class DialogAddNew extends Component {
                   data-success="right"
                   htmlFor="defaultForm-pass"
                 >
-                  DurationInMins
+                  Thời lượng
                 </label>
 
                 <input
@@ -144,7 +141,7 @@ class DialogAddNew extends Component {
                   data-success="right"
                   htmlFor="defaultForm-pass"
                 >
-                  ReleaseDate
+                  Ngày công chiếu
                 </label>
 
                 <input
@@ -161,7 +158,7 @@ class DialogAddNew extends Component {
                   data-success="right"
                   htmlFor="defaultForm-pass"
                 >
-                  Director
+                  Đạo diễn
                 </label>
                 <input
                   name="director"
@@ -177,7 +174,7 @@ class DialogAddNew extends Component {
                 data-success="right"
                 htmlFor="defaultForm-pass"
               >
-                Actor
+                Diễn viên
               </label>
               <input
                 name="actor"
@@ -192,10 +189,10 @@ class DialogAddNew extends Component {
                 data-success="right"
                 htmlFor="defaultForm-email"
               >
-                Image
+                Ảnh
               </label>
               <input
-                name="image_url"
+                name="url_image"
                 type="text"
                 id="defaultForm-email"
                 className="form-control "
@@ -207,10 +204,10 @@ class DialogAddNew extends Component {
                 data-success="right"
                 htmlFor="defaultForm-email"
               >
-                Trailer
+                Link Trailer
               </label>
               <input
-                name="trailer_url"
+                name="url_trailer"
                 type="text"
                 id="defaultForm-email"
                 className="form-control "

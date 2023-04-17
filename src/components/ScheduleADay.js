@@ -90,7 +90,7 @@ export default function ScheduleADay(props)  {
                   <h4 style={{ textAlign: 'left', fontSize: '20px'}}>Khung giờ chiếu: {e.startTime.substr(11, 5)} - {e.endTime.substr(11, 5)}</h4>
                   <h4 style={{ textAlign: 'left' }}>Thời Lượng: {e.movie.durationInMins}</h4>
                   <h4 style={{ textAlign: 'left' }}>Đạo diễn: {e.movie.director}</h4>
-                  <h4 style={{ textAlign: 'left' }}>Đạo diễn: {e.movie.director}</h4>
+                  <h4 style={{ textAlign: 'left' }}>Diễn viên: {e.movie.actor}</h4>
                   </div>
                   </Link>
 

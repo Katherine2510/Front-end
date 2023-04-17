@@ -13,13 +13,13 @@ const Header = () => {
     <div>
       <div className="top-header">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8">
-              <div class="info-block">Hotline: 024.35141791</div>
+          <div className="row" >
+            <div  style={{ float: 'left', width: '70%'}}>
+              
             </div>
-            <div className="col-md-4">
+            <div style={{ float: 'right', width: '30%' }}>
               <div className="social-grid text-right">
-                <ul className="list-unstyled ">
+                <ul style={{ lineHeight: '0px' }}>
                   <li>
                     <a href="https://www.facebook.com/chieuphimquocgiavn/">
                       <i className="fa fa-facebook" />

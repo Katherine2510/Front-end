@@ -121,7 +121,7 @@ class NowShowing extends Component {
       .then((response) => {
         console.log(response);
         if (response.ok) {
-          return response.json();
+return response.json();
           alert("thanhcong");
         }
         throw Error(response.status);
@@ -188,11 +188,11 @@ class NowShowing extends Component {
     return (
       <div col-md-9 col-sm-8 col-xs-12>
         <div id="product-table">
-          <ButtonGroup>
-            <Button color="primary" onClick={() => this.handleOpenAddNew()}>
-              Thêm phim mới
-            </Button>
-          </ButtonGroup>
+          <h2>Phim đang chiếu</h2>
+          <button className="button3"  onClick={() => this.handleOpenAddNew()} style={{ width: '180px', backgroundColor: ' #2b2b2b' }}>
+            Thêm Phim mới
+          </button>
+
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
@@ -200,23 +200,23 @@ class NowShowing extends Component {
                   className="detail"
                   style={{ fontSize: "20px !important" }}
                 >
-                  <TableCell style={{ width: "3%" }}>STT</TableCell>
-                  <TableCell style={{ width: "15%" }}>Tên phim</TableCell>
-                  <TableCell style={{ width: "40%" }}>Tóm tắt</TableCell>
-                  <TableCell>Thời lượng</TableCell>
-                  <TableCell>Đạo diễn</TableCell>
-                  <TableCell>Diễn viên</TableCell>
-                  <TableCell style={{ width: "5%" }}>Actions</TableCell>
+                  <TableCell style={{ width: "3%", textAlign: "center" }}>STT</TableCell>
+                  <TableCell style={{ width: "20%", textAlign: "center" }}>Tên phim</TableCell>
+                  <TableCell style={{ width: "45%", textAlign: "center" }}>Tóm tắt</TableCell>
+                  <TableCell style={{ width: "5%", textAlign: "center" }}>Thời lượng</TableCell>
+                  <TableCell style={{ width: "8%", textAlign: "center" }}>Đạo diễn</TableCell>
+                  <TableCell style={{ textAlign: "center" }}>Diễn viên</TableCell>
+                  <TableCell style={{ width: "5%", textAlign: "center" }}>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody className="detail">
                 {this.state.rows.allMovie?.map((row, i) => (
                   <TableRow key={row.id}>
-                    <TableCell>{i + 1}</TableCell>
+                    <TableCell style={{ textAlign: "center" }}>{i + 1}</TableCell>
                     <TableCell>{row.title}</TableCell>
                     <TableCell>{row.description}</TableCell>
-                    <TableCell>{row.durationInMins}</TableCell>
-                    <TableCell>{row.director}</TableCell>
+<TableCell style={{ textAlign: "center" }}>{row.durationInMins}</TableCell>
+                    <TableCell style={{ textAlign: "center" }}>{row.director}</TableCell>
                     <TableCell>{row.actor}</TableCell>
                     <TableCell>{this.actionsBlock(row)}</TableCell>
                   </TableRow>

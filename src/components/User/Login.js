@@ -76,57 +76,35 @@ const Login = () => {
   };
 
   return (
-    <div className="dialog, set">
-      <h1>Sign in</h1>
-      {/*} <div className = 'span-login'>
-        <div class="social-container">
-            <a href="#" class="social">
-              <i className="fa fa-facebook" ></i>
-            </a>
-            <a href="#" class="social">
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" class="social">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form">
+          <div className="user-box">
+            <label>Email:</label>
+            <input
+              type="text"
+              name="email"
+              onChange={(event: any) => setEmail(event.target.value)}
+            />
           </div>
-          <div>or use your account</div> 
-        </div>*/}
+          <div className="user-box">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              onChange={(event: any) => setPassword(event.target.value)}
+            />
+          </div>
 
-      <div className="user-box">
-        <label>Email:</label>
-        <input
-          type="text"
-          name="email"
-          onChange={(event: any) => setEmail(event.target.value)}
-        />
-      </div>
-      <div className="user-box">
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          onChange={(event: any) => setPassword(event.target.value)}
-        />
-      </div>
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <div>
-        <button type="button" name="email" onClick={login}>
-          Login
-        </button>
-      </div>
-      <div className="span-login"> Bạn chưa có tài khoản? </div>
-      <div>
-        <Link to="/register">
-          <button type="button" name="email">
-            Register
+          <button type="button" name="email" onClick={login}>
+            Login
           </button>
-        </Link>
+          <p class="message">
+            Bạn chưa có tài khoản? <a href="/register">Tạo tài khoản mới</a>
+          </p>
+        </form>
       </div>
-    </div>
+</div>
   );
 };
 

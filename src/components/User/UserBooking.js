@@ -111,44 +111,24 @@ class UserBooking extends Component {
     };
 
     callApiDeleteBooking = () => {
-        var myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            `Bearer ${localStorage.getItem("token")}`
-        );
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("_id", this.state.selectedItem._id);
+     
+        const json = JSON.stringify({
+            vnp_TxnRef: String(this.state.selectedItem.payment.vnp_TxnRef),
+            vnp_TransactionDate: String(this.state.selectedItem.payment.vnp_TransactionDate),
+            vnp_Amount: String(this.state.selectedItem.amount),
+            vnp_CreateBy: "NGUYEN VAN A",
+            bookingID: this.state.selectedItem._id
+        });
+        const res = axios.post('http://localhost:3001/api/payment/refund', json, {
+            headers: {
+                // Overwrite Axios's automatically set Content-Type
+                'Content-Type': 'application/json'
+            }
+        });
+        alert("Khong thanh cong");
 
-        var requestOptions = {
-            method: "DELETE",
-            headers: myHeaders,
-            body: urlencoded,
-            redirect: "follow",
-        };
+    }
 
-        fetch(
-            `http://localhost:3001/api/booking/${this.state.selectedItem._id}`,
-            requestOptions
-        )
-            .then((response) => {
-                console.log(response);
-                if (response.ok) {
-                    return response.json();
-        
-                }
-                throw Error(response.status);
-            })
-            .then((result) => {
-                console.log(result);
-                this.state.firstName("");
-                this.state.lastName("");
-              
-            })
-            .catch((error) => {
-                console.log("error", error);
-               
-            });
-    };
 
     //Xác nhận tương ứng với các hoạt động openEditItem và openDeleteShow
     handleSubmit = (newOne) => {
@@ -195,10 +175,10 @@ class UserBooking extends Component {
                                     style={{ fontSize: "20px !important" }}
                                 >
                                     <TableCell style={{ width: "5%" }}>STT</TableCell>
-                                    <TableCell>ID vé</TableCell>
-                                    <TableCell>Tên phim</TableCell>
+                                    <TableCell style={{ width: "10%" }}>ID vé</TableCell>
+                                    <TableCell style={{ width: "25%" }}>Tên phim</TableCell>
                                     <TableCell>Phòng chiếu</TableCell>
-                                    <TableCell>Ghế ngồi</TableCell>
+                                    <TableCell style={{ width: "6%" }}>Ghế ngồi</TableCell>
                                     <TableCell>Thời gian bắt đầu</TableCell>
                                     <TableCell>Thời gian kết thúc</TableCell>
                                     <TableCell>Thanh toán</TableCell>
@@ -208,16 +188,17 @@ class UserBooking extends Component {
                             </TableHead>
                             <TableBody className="detail">
                                 {this.state.rows.listBooking?.map((row, i) => (
-                                    // entom: this.handleChange,
+
                                     <>
 
                                         <TableRow key={row.id}>
                                             <TableCell>{i + 1}</TableCell>
                                             <TableCell>{row._id}</TableCell>
-                                            <TableCell>{row.show?.movie}</TableCell>
-                                            <TableCell>{row.show?.hall}</TableCell>
-                                            <TableCell>{row.seats?.map((col) =>(
-                                                `Ghế ( ${col.row} - ${col.column} ) `
+                                            <TableCell>{row.show?.movie.title}</TableCell>
+                                            <TableCell>{row.show?.hall.name}</TableCell>
+                                            <TableCell>{row.seats?.map((col) => (
+                                                `Ghế(${col.row}-${String.fromCharCode(65 + Number(col.column))}) `
+
                                             ))}</TableCell>
                                             <TableCell>{row.show?.startTime}</TableCell>
                                             <TableCell>{row.show?.endTime}</TableCell>

@@ -138,14 +138,14 @@ class Comments extends Component {
   render() {
     const {name, comment, arrayList, count} = this.state
     return (
-      <div className="container">
+      <div className="container" >
          
-        <h1 className="main-heading">Bình luận</h1><div className="inner-holder">
+        <h3 className="main-heading">Bình luận</h3><div className="inner-holder">
         
           <div className="element-holder">
           
           <p className="para1"></p> 
-            <p className="para1">Bình luận về bộ phim</p>
+            <h3 className="para1">Bình luận về bộ phim</h3>
             <form className="element-holder" onSubmit={this.addComment}>
              
               <input

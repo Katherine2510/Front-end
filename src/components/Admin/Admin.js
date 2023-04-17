@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import Records from '../json/thisstore.json';
-//import banner from "../images/banner7.jpg";
+import banner from "../../images/pictures/admin.png";
 import '../../font-awesome/css/font-awesome.min.css'
 import Popup from "reactjs-popup";
 //import banner2 from "../images/banner2.png"
@@ -11,7 +11,7 @@ const Admin = () => {
       {/*end*/}
       <section
         className="image-head-wrapper"
-        //style={{ backgroundImage: "url(" + banner +")" }}
+        style={{ backgroundImage: "url(" + banner +")" }}
       >
         <div className="inner-wrapper">
           <h1>ADMIN PAGE</h1>

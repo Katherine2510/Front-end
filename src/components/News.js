@@ -4,152 +4,150 @@ import '../css/responsive.css'
 import '../css/lightbox.min.css'
 import '../css/bootstrap.min.css'
 import banner0 from '../images/banner.png'
-import banner1 from '../images/film2.png'
-import banner2 from '../images/film2.png'
-import banner3 from '../images/film2.png'
-import banner4 from '../images/film2.png'
+import banner1 from '../images/u_c_film1.png'
+import banner2 from '../images/u_c_film2.png'
+import banner3 from '../images/u_c_film3.png'
+import banner4 from '../images/u_c_film4.png'
 
 
 
 
-const News=() => {
-    return (
-        <>
-        <section
-    className="image-head-wrapper"
-    style={{ backgroundImage: "url(" + banner0 + ")" }}
-  >
-    <div className="inner-wrapper">
-     
+const News = () => {
+  return (
+    <>
+      <section
+        className="image-head-wrapper"
+        style={{ backgroundImage: "url(" + banner0 + ")" }}
+      >
+        <div className="inner-wrapper">
 
-    </div>
-  </section>
-  <div className="clearfix" />
-  <section className="resort-overview-block">
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
-          <div className="side-A">
-            <div className="product-thumb">
-              <div className="image">
-                <a href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/xe-lai-hyundai-santafe-hybrid-lan-dau-lo-thong-so-cuc-cang-tai-viet-nam-san-sang-ra-mat-khach-hang.html">
-                  <img
-                    alt="image"
-                    className="img-responsive"
-                    src={banner1}
-                  />
-                </a>
+
+        </div>
+      </section>
+      <div className="clearfix" />
+      <section className="resort-overview-block">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
+              <div className="side-A">
+                <div className="product-thumb">
+                  <div className="image">
+                    <a href="https://kenh14.vn/he-lo-tao-hinh-cap-bo-con-phim-viet-dang-duoc-mong-cho-nhat-hien-tai-toan-ten-tuoi-tram-ty-dinh-dam-20230413131130929.chn">
+                      <img
+                        alt="image"
+                        className="img-responsive"
+                        src={banner1}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="side-B">
+                <div className="product-desc-side">
+                  <h3>
+                    <a href="https://kenh14.vn/he-lo-tao-hinh-cap-bo-con-phim-viet-dang-duoc-mong-cho-nhat-hien-tai-toan-ten-tuoi-tram-ty-dinh-dam-20230413131130929.chn">Hé lộ tạo hình cặp bố con phim Việt </a>
+                  </h3>
+                  <p>
+                    Dịp lễ 30/4 - 1/5 năm nay đón chào 2 dự án phim Việt đổ bộ rạp chiếu toàn quốc, và một trong số đó đánh dấu sự kết hợp của 2 cái tên "bảo chứng trăm tỷ" đình đám. Sau Tiệc Trăng Máu, Thu Trang và Thái Hòa từ vợ chồng hóa... </p>
+                  <div className="links">
+                    <a href="https://kenh14.vn/he-lo-tao-hinh-cap-bo-con-phim-viet-dang-duoc-mong-cho-nhat-hien-tai-toan-ten-tuoi-tram-ty-dinh-dam-20230413131130929.chn">Read more</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="side-B">
-            <div className="product-desc-side">
-              <h3>
-                <a href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/xe-lai-hyundai-santafe-hybrid-lan-dau-lo-thong-so-cuc-cang-tai-viet-nam-san-sang-ra-mat-khach-hang.html">Hyndai santafe</a>
-              </h3>
-              <p>
-              Vào giữa tháng 11, cùng với việc khánh thành nhà máy Hyundai Thành Công số 2 tại Ninh Bình, đại diện hãng xe Hàn Quốc cho biết kế hoạch sản xuất xe hybrid và xe điện trong thời gian tới, trong đó có mẫu Santa Fe.  
-              </p>
-              <div className="links">
-                <a href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/xe-lai-hyundai-santafe-hybrid-lan-dau-lo-thong-so-cuc-cang-tai-viet-nam-san-sang-ra-mat-khach-hang.html">Read more</a>
+            <div className="clear" />
+            <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
+              <div className="side-A">
+                <div className="product-thumb">
+                  <div className="image">
+                    <a href="https://vietnamnet.vn/bom-tan-nguoi-nhen-du-hanh-vu-tru-nhen-vuot-mat-loat-phim-sieu-anh-hung-2129744.html">
+                      <img
+                        src={banner2}
+                        className="img-responsive"
+                        alt="image"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="side-B">
+                <div className="product-desc-side">
+                  <h3>
+                    <a href="https://vietnamnet.vn/bom-tan-nguoi-nhen-du-hanh-vu-tru-nhen-vuot-mat-loat-phim-sieu-anh-hung-2129744.html">'Người Nhện: Du hành vũ trụ nhện'</a>
+                  </h3>
+                  <p>
+                    Trailer thứ 2 vừa ra mắt đã đạt 148,6 triệu lượt xem chỉ trong vòng 24 giờ, vượt xa hai trailer của hai bom tấn siêu anh hùng vừa ra mắt khác là Guardians of the Galaxy vol. 3 (116,9 triệu) và The Flash (81,9 triệu).
+                  </p>
+                  <div className="links">
+                    <a href="https://vietnamnet.vn/bom-tan-nguoi-nhen-du-hanh-vu-tru-nhen-vuot-mat-loat-phim-sieu-anh-hung-2129744.html">Read more</a>
+                  </div>
+                </div>
               </div>
             </div>
+            <div className="clear" />
+            <div className="col-md-12 offspace-45" />
+            <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
+              <div className="side-A">
+                <div className="product-desc-side">
+                  <h3>
+                    <a href="https://thanhnien.vn/thanh-hang-khoe-chan-dai-1m2-voi-phong-cach-street-style-1851008258.htm">Thanh Hằng khoe chân dài 1m12 với phong cách 'street style'</a>
+                  </h3>
+                  <p>
+                    Siêu mẫu Thanh Hằng luôn biết cách khẳng định đẳng cấp của mình qua mỗi bộ ảnh thời trang.              </p>
+                  <div className="links">
+                    <a href="https://thanhnien.vn/thanh-hang-khoe-chan-dai-1m2-voi-phong-cach-street-style-1851008258.htm">Read more</a>
+                  </div>
+                </div>
+              </div>
+              <div className="side-B">
+                <div className="product-thumb">
+                  <div className="image txt-rgt">
+                    <a className="arrow-left" href="https://thanhnien.vn/thanh-hang-khoe-chan-dai-1m2-voi-phong-cach-street-style-1851008258.htm">
+                      <img
+                        alt="imaga"
+                        className="img-responsive"
+                        src={banner3}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="clear" />
+            <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
+              <div className="side-A">
+                <div className="product-desc-side">
+                  <h3>
+                    <a href="https://moveek.com/en/bai-viet/mong-vuot-2023-kaity-nguyen-tai-hop-dao-dien-le-thanh-son-trong-phim-giat-gan-kinh-di-moi/30329">Katty Nguyễn tái hợp đạo diễn Lê Thanh Sơn trong bộ phim kinh dị mới</a>
+                  </h3>
+                  <p>
+                  5 năm thành công rự rỡ của em chưa 18, đạo diễn Lê Thanh Sơn và Katty Nguyễn bất ngờ công bố tái lớp trong dự án kinh dị mới mang tên Móng Vuốt.
+                  </p>
+                  <div className="links">
+                    <a href="https://moveek.com/en/bai-viet/mong-vuot-2023-kaity-nguyen-tai-hop-dao-dien-le-thanh-son-trong-phim-giat-gan-kinh-di-moi/30329">Read more</a>
+                  </div>
+                </div>
+              </div>
+              <div className="side-B">
+                <div className="product-thumb txt-rgt">
+                  <div className="image">
+                    <a className="arrow-left" href="https://moveek.com/en/bai-viet/mong-vuot-2023-kaity-nguyen-tai-hop-dao-dien-le-thanh-son-trong-phim-giat-gan-kinh-di-moi/30329">
+                      <img
+                        alt="imaga"
+                        className="img-responsive"
+                        src={banner4}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="clearfix" />
           </div>
         </div>
-        <div className="clear" />
-        <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
-          <div className="side-A">
-            <div className="product-thumb">
-              <div className="image">
-                <a href="https://tapchibonbanh.com/tin-tuc/quoc-te/corolla-chay-dien-toyota-bz3-2023-dung-loi-cua-trung-quoc-se-co-gia-cuc-mem.html">
-                  <img
-                    src={banner2}
-                    className="img-responsive"
-                    alt="image"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="side-B">
-            <div className="product-desc-side">
-              <h3>
-                <a href="https://tapchibonbanh.com/tin-tuc/quoc-te/corolla-chay-dien-toyota-bz3-2023-dung-loi-cua-trung-quoc-se-co-gia-cuc-mem.html">Toyota bz3 chạy điện có giá cực mềm</a>
-              </h3>
-              <p>
-              Chiếc xe điện Toyota bZ3 tiếp tục lộ thêm thông tin về thông số và nguồn gốc sản xuất, cho thấy một nghịch lý mới trong sản phẩm của hãng xe Nhật Bản.
-              </p>
-              <div className="links">
-                <a href="https://tapchibonbanh.com/tin-tuc/quoc-te/corolla-chay-dien-toyota-bz3-2023-dung-loi-cua-trung-quoc-se-co-gia-cuc-mem.html">Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="clear" />
-        <div className="col-md-12 offspace-45" />
-        <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
-          <div className="side-A">
-            <div className="product-desc-side">
-              <h3>
-                <a href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/lo-nhung-anh-dau-tien-cua-toyota-veloz-va-avanza-lap-rap-tai-viet-nam-ong-vua-xpander-phai-e-de.html">Những hình ảnh đầu tiên của Toyota Veloz</a>
-              </h3>
-              <p>
-              Website của Cục Đăng kiểm Việt Nam đã đăng tải thông tin về cặp đôi Toyota Veloz Cross và Avanza Premio lắp ráp trong nước. Theo đó, mỗi mẫu xe đều có 2 phiên bản, sử dụng chung khối động cơ 1.5L 4 xy-lanh, tên mã 2NR-VE, cho công suất 105 mã lực
-              </p>
-              <div className="links">
-                <a href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/lo-nhung-anh-dau-tien-cua-toyota-veloz-va-avanza-lap-rap-tai-viet-nam-ong-vua-xpander-phai-e-de.html">Read more</a>
-              </div>
-            </div>
-          </div>
-          <div className="side-B">
-            <div className="product-thumb">
-              <div className="image txt-rgt">
-                <a className="arrow-left" href="https://tapchibonbanh.com/tin-tuc/trong-nuoc/lo-nhung-anh-dau-tien-cua-toyota-veloz-va-avanza-lap-rap-tai-viet-nam-ong-vua-xpander-phai-e-de.html">
-                  <img
-                    alt="imaga"
-                    className="img-responsive"
-                    src={banner3}
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="clear" />
-        <div className="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
-          <div className="side-A">
-            <div className="product-desc-side">
-              <h3>
-                <a href="https://tapchibonbanh.com/tin-tuc/giao-thong/cuc-truong-duong-sat-dan-dung-xe-chup-anh-gay-ap-luc-cho-ket-cau-mat-cau-long-bien.html">Tin tức giao thông</a>
-              </h3>
-              <p>
-              Hôm nay (31/5), Cục Đường sắt Việt Nam (Bộ GTVT) đã chủ trì đi kiểm tra và làm việc với các đơn vị liên quan tìm giải pháp đảm bảo an toàn giao thông qua cầu Long Biên sau khi liên tiếp xảy ra 2 vụ thủng mặt cầu.
-              </p>
-              <div className="links">
-                <a href="https://tapchibonbanh.com/tin-tuc/giao-thong/cuc-truong-duong-sat-dan-dung-xe-chup-anh-gay-ap-luc-cho-ket-cau-mat-cau-long-bien.html">Read more</a>
-              </div>
-            </div>
-          </div>
-          <div className="side-B">
-            <div className="product-thumb txt-rgt">
-              <div className="image">
-                <a className="arrow-left" href="https://tapchibonbanh.com/tin-tuc/giao-thong/cuc-truong-duong-sat-dan-dung-xe-chup-anh-gay-ap-luc-cho-ket-cau-mat-cau-long-bien.html">
-                  <img
-                    alt="imaga"
-                    className="img-responsive"
-                    src={banner4}
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="clearfix" />
-      </div>
-    </div>
-  </section>
-  </>
+      </section>
+    </>
 
-    )
+  )
 }
 export default News

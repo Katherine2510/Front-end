@@ -268,4 +268,31 @@
       width: 75vw;
     }
   }
+  .margintrue {
+    margin-left: 70px;
+    font-weight: bold;
+}
+.title3 {
+    margin-left: 0px;
+    font-size: 40px;
+}
+
+.margincenter1 {
+    text-align: center;
+}
+
+.button3 {
   
+    background-color: rgb(139, 10, 10);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    cursor: pointer;
+     
+}

@@ -187,9 +187,8 @@ const App = () => {
             <div>
              
              <ViewFilmDetail/>
-            
-             <CommentList />
-             <ScheduleAFilm />
+            <ScheduleAFilm />
+            <CommentList />
            
             </div>
           }
@@ -203,12 +202,7 @@ const App = () => {
           element={
             <div>
              
-              <Comments/>
-            
-             <CommentList />
-   
-           
-            </div>
+              <Comments/>  </div>
           }
         >
           </Route>
@@ -240,34 +234,7 @@ const App = () => {
         >
           </Route>
        
-      </Routes>
-     
-          
-                <Routes>
-                    <Route
-                    path="/comment1"
-                    element={
-                        <div> 
-                          <CommentList/>
-                     
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
-               <Routes>
-                    <Route
-                    path="/comments"
-                    element={
-                        <div> 
-                         <Comments/>
-                        </div>
-                    }
-                    >
-                    </Route>
-                
-                </Routes>
+      </Routes> 
                 <Routes>
                     <Route
                     path="/ghedachon"

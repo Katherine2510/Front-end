@@ -19,7 +19,7 @@ import DeleteShow from "./DeleteShow";
 import EditShow from "./EditShow";
 import axios from "axios";
 
-class NowShowing extends Component {
+class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,7 +121,7 @@ class NowShowing extends Component {
     };
 
     fetch(
-      `http://localhost:3001/api/show/${this.state.selectedItem._id}`,
+`http://localhost:3001/api/show/${this.state.selectedItem._id}`,
       requestOptions
     )
       .then((response) => {
@@ -233,9 +233,9 @@ class NowShowing extends Component {
       <div col-md-9 col-sm-8 col-xs-12>
         <div id="product-table">
           <ButtonGroup>
-            <Button color="primary" onClick={() => this.handleOpenAddNew()}>
+<button className="button3" onClick={() => this.handleOpenAddNew()} style={{ width: '240px', backgroundColor: ' #2b2b2b' }}>
               Thêm Show mới
-            </Button>
+            </button>
           </ButtonGroup>
           <TableContainer component={Paper}>
             <Table>
@@ -302,4 +302,4 @@ class NowShowing extends Component {
   }
 }
 
-export default NowShowing;
+export default Show;

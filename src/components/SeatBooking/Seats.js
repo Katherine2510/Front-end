@@ -212,7 +212,7 @@ export default function Seats(props)  {
         if (response.ok) {
         return response.json();
         }
-        throw Error(response.status);
+      
     })
     .then((result) => {
         console.log(result.success);
@@ -234,7 +234,7 @@ export default function Seats(props)  {
      {checkTypeseat()}
     
      <div className="container">
-     <div className="side-A1" >
+     <div className="side-A4" >
          <div className="w3ls-reg" style={{paddingTop: '0px', textAlign: 'center'}}>
                             <ul className="seat_w3ls">
 
@@ -247,9 +247,9 @@ export default function Seats(props)  {
                                 <li className="smallBox emptyBox2" style={{ borderColor: 'pink' }}>Hàng ghế đôi</li>
                             </ul>
                             <div className="screen">
-                                    <h2 className="wthree">Đây là màn hình</h2>
+                                    <h2 className="wthree">Màn hình</h2>
                                 </div>
-                        <table className="table-seat">
+                        <table className="table-seat" style={{  width: '500px' }}>
                             <div className="row1">
                              {[...new Array(Number(localStorage.getItem("hallseat"))+1)].map((col, colIndex) => {return(
                                 colIndex === 0 
@@ -304,22 +304,19 @@ export default function Seats(props)  {
                         
        
     </div>
-    <div className="side-B1 bill">
+    <div className="side-B4 bill" style={{  }}>
     <h1 style={{ fontSize: '30px', color: 'white'}}>Hoá đơn của bạn</h1>
-                        <p>Phim: {localStorage.getItem("title")}</p>
-                       <p>Ngày chiếu phim: {localStorage.getItem('date')}</p>
-                       <p>Thời gian: {localStorage.getItem("start")} - {localStorage.getItem("end")}</p>
-                        <p> Các vị trí đã chọn:<p id="someSeat"></p> </p>
-                       <p >Số tiền phải trả là :<p id="element"></p></p> 
-                       <p></p>
-                       <div className="row" style={{ marginLeft: '0px' }}>
-                       <a onClick={()=>{toPayment()}} style={{ paddingLeft:'20%' }}>
-                          <p>THANH TOÁN</p>
-                        </a>
-                        <Link style={{ marginLeft: '50px' }} >
-                          <p>QUAY LẠI</p>
-                        </Link>
-      
+                        <p style={{ fontSize: '15px' }}>Phim: <div>{localStorage.getItem("title")}</div></p>
+                       <p style={{ fontSize: '15px' }}>Ngày chiếu phim: <div>{localStorage.getItem('date')}</div></p>
+                       <p style={{ fontSize: '15px' }}>Thời gian:<div>{localStorage.getItem("start")} - {localStorage.getItem("end")}</div></p>
+                        <p style={{ fontSize: '15px' }}> Các vị trí đã chọn:<div id="someSeat"></div> </p>
+                       <p  style={{ fontSize: '15px' }}>Số tiền phải trả là :<div id="element"></div></p> 
+                     
+                       <div className="row"  >
+                       <button onClick={()=>{toPayment()}} style={{ height: '50px', width: '80%', paddingRight: '0px',  paddingLeft: '0px' }}>
+                          THANH TOÁN
+                        </button>
+                    
       
     </div>
     </div>

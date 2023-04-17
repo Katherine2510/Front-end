@@ -5,6 +5,7 @@ import "../../css/table.css"
 import '../../css/style.css'
 import '../../css/responsive.css'
 import '../../css/lightbox.min.css'
+import { useRef } from 'react';
 import '../../css/bootstrap.min.css'
 
 
@@ -15,7 +16,11 @@ export default function ViewFilmDetail(props) {
     const [ViewFilmDetail, setViewFilmDetail] = useState([])
     const { id } = useParams();
     
-    
+    const toBooking = useRef(null);
+
+    const handleClick = () => {
+      toBooking.current?.scrollIntoView({behavior: 'smooth'});
+    };
     
 
     useEffect(() => {
@@ -73,9 +78,9 @@ export default function ViewFilmDetail(props) {
                   
                     </div>
                     <div className="links film-detail">
-                        <a href =  {`/datebooking/${ViewFilmDetail.movie?._id}`} >ĐẶT VÉ</a>
+                        <Link onClick={handleClick} >ĐẶT VÉ</Link>
                         <a href = {ViewFilmDetail.movie?.trailer_url} style={{ marginLeft: '10px' }}>XEM TRAILER</a>
-                        <Link to = {`/comment/${ViewFilmDetail.movie?._id}`} style={{ marginLeft: '10px' }} onClick={() => { localStorage.setItem("id_film",ViewFilmDetail.movie?._id) }}>Bình luận</Link>
+                        <Link ref={ toBooking } to = {`/comment/${ViewFilmDetail.movie?._id}`} style={{ marginLeft: '10px' }} onClick={() => { localStorage.setItem("id_film",ViewFilmDetail.movie?._id) }}>Bình luận</Link>
                     </div>
                     
                 </div>

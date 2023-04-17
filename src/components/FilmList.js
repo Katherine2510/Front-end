@@ -55,17 +55,14 @@ export default function FilmList(){
                 <li>
                 <Link data-hover="PHIM SẮP CHIẾU" to="/phimsapchieu" ><span>PHIM SẮP CHIẾU</span></Link>
                 </li>
-            
-                
-                
-              </ul>
+                 </ul>
             </div>
-          
+          <div className='grid-container'>
             {
               
               FilmList.allMovie?.map((e, i) =>
              
-              <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12" key={i} style={{ height: '100%' }}>
+              <div className=" grid-item" key={i} style={{ height: '100%' }}>
               
                 <div className="gallery-image" >
                   <img className="img-responsive" src={`${e.image_url}`} style={{objectFit: 'contain'}} />
@@ -89,6 +86,7 @@ export default function FilmList(){
               )
               
             }
+          </div>
            
             </div>
             </section>

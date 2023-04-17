@@ -85,9 +85,9 @@ const TimeBooking2 = () => {
     return (
         <div  className="container" style={{ paddingLeft: '10px' }} > 
         <div >  
-           <h1 className="booking-detail" style={{ fontSize: '25px', float: 'left'}} >Chọn khung giờ xem phim</h1>
+           <h1 className="booking-detail" style={{ fontSize: '25px', float: 'left'}} >Chọn lịch xem phim</h1>
  
-           <h1 className="booking-detail" style={{ fontSize: '25px', float: 'left'}} >Ngày chiếu : {cid}</h1>
+       
            <div className="row side-B">
           {     
                ViewTime.listShow?.map((e, i) => (

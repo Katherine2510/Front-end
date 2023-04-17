@@ -75,9 +75,9 @@ class DialogEditItem extends Component {
       })
       .catch((error) => {
         console.log("error", error);
-        alert("wrong");
+   
       });
-      alert("chưa thanh cong")
+    
   };
 
  
@@ -92,9 +92,9 @@ class DialogEditItem extends Component {
     return (
       <div>
         <Dialog open={this.props.open}>
-          <form>
+          <form className="dialog" style={{ width: '700px' }}>
             <div className="modal-header text-center">
-              <h4 className="modal-title w-100 font-weight-bold">EDIT</h4>
+              <h1 >EDIT</h1>
               <button
                 type="button"
                 className="submit-btn"

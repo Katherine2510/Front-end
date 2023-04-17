@@ -17,7 +17,7 @@ const Intro=() => {
 
 <div>
   <p style={{ textAlign: "center" }}>
-   <strong><h2>GIỚI THIỆU CHUNG</h2></strong>
+   <strong><h1>GIỚI THIỆU CHUNG</h1></strong>
       <span style={{ fontSize: "large" ,}}>
         <span style={{ fontFamily: "arial, helvetica, sans-serif" }}>
           &nbsp; &nbsp; &nbsp;

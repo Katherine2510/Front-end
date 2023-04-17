@@ -36,7 +36,7 @@ export default function CommentList(){
     return (
        <>
        <h1 style={{ fontSize: '20px', marginTop:'50px' }}>BÌNH LUẬN VỀ PHIM</h1>
-       <p className="comments-count">
+   
           
    
           {CommentList.listRating?.map((e, i) => (
@@ -51,7 +51,7 @@ export default function CommentList(){
           ))
             }
           
-        </p>
+      
        </>
             
       
