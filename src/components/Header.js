@@ -121,9 +121,17 @@ const Header = () => {
                             </a>
                           </li>
                         </>
-                      ) : id && !ad ?(
+                      ) :( id && ad ? (
                         /*thêm*/
                         <li>
+                           <a
+                            data-hover="ADMIN"
+                            onClick={() => {
+                              navigate("/admin");
+                            }}
+                          >
+                            <span>ADMIN</span>
+                          </a>
                           <a
                             data-hover="CÁ NHÂN"
                             onClick={() => {
@@ -138,6 +146,7 @@ const Header = () => {
                             onClick={() => {
                               navigate("/login");
                               localStorage.removeItem("success");
+                              localStorage.removeItem("email");
                             }}
                           >
                             <span>ĐĂNG XUẤT</span>
@@ -145,14 +154,7 @@ const Header = () => {
                         </li>
                       ):
                       (<li>
-                        <a
-                          data-hover="ADMIN"
-                          onClick={() => {
-                            navigate("/admin");
-                          }}
-                        >
-                          <span>ADMIN</span>
-                        </a>
+                       
                         <a
                           data-hover="CÁ NHÂN"
                           onClick={() => {
@@ -167,11 +169,13 @@ const Header = () => {
                           onClick={() => {
                             navigate("/login");
                             localStorage.removeItem("success");
+                            localStorage.removeItem("email");
                           }}
                         >
                           <span>ĐĂNG XUẤT</span>
                         </a>
                       </li>)
+                      )
                       }
                     </ul>
                   </div>
