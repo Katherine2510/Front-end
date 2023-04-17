@@ -222,7 +222,19 @@ class Show extends Component {
   actionsBlock = (item) => {
     return (
       <div className="actionsBlock">
-        <Button onClick={() => this.handleClickOpens(item)}>Edit</Button>
+        <Button
+          onClick={() => {
+            this.handleClickOpens(item);
+            localStorage.setItem("Movie_id", item.movie?._id);
+            localStorage.setItem("Hall_id", item.hall?._id);
+            localStorage.setItem("startTime", item.startTime);
+            localStorage.setItem("endTime", item.endTime);
+            localStorage.setItem("Movie_id_name", item.movie?.title);
+            localStorage.setItem("Hall_id_name", item.hall?.name);
+          }}
+        >
+          Edit
+        </Button>
         <Button onClick={() => this.handleDeleteItems(item)}>Delete</Button>
       </div>
     );

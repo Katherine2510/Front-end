@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -7,41 +7,55 @@ import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-//import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import "../../css/table.css";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import Table from "@material-ui/core/Table";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Paper from "@material-ui/core/Paper";
 
+import EditShow1 from "./EditShow1";
+import EditShow2 from "./EditShow2";
+import EditShow3 from "./EditShow3";
+
+//import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 class EditShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      openEdit1: false,
+      openEdit2: false,
+      openEdit3: false,
+      hall: "",
+      movie: "",
+      startTime: "",
+      endTime: "",
       _id: "",
-      title:this.props.selectedItem.title,
-      description: this.props.selectedItem.description,
-      durationInMins: this.props.selectedItem.durationInMins,
-      releaseDate: this.props.selectedItem.releaseDate,
-      director: this.props.selectedItem.director,
-      actor: this.props.selectedItem.actor,
-      image_url: this.props.selectedItem.image_url,
-      trailer_url: this.props.selectedItem.trailer_url,
+      rows: [],
     };
   }
-  callApiEditAccount = () => {
+  refresh = () => {
+    window.location.reload();
+  };
+  setParams = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+  callApiEditShow = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     myHeaders.append(
       "Authorization",
       `Bearer ${localStorage.getItem("token")}`
     );
-
     var urlencoded = new URLSearchParams();
-    urlencoded.append("title", this.state.title);
-    urlencoded.append("description", this.state.description);
-    urlencoded.append("durationInMins", this.state.durationInMins);
-    urlencoded.append("releaseDate", this.state.releaseDate);
-    urlencoded.append("director", this.state.director);
-    urlencoded.append("actor", this.state.actor);
-    urlencoded.append("image_url", this.state.image_url);
-    urlencoded.append("trailer_url", this.state.trailer_url);
+    urlencoded.append("hall", localStorage.getItem("Hall_id"));
+    urlencoded.append("movie", localStorage.getItem("Movie_id"));
+    urlencoded.append("startTime", localStorage.getItem("startTime"));
+    urlencoded.append("endTime", localStorage.getItem("endTime"));
 
     var requestOptions = {
       method: "PUT",
@@ -51,189 +65,205 @@ class EditShow extends Component {
     };
 
     fetch(
-      `http://localhost:3001/api/movie/${this.props.selectedItem._id}`,
+      `http://localhost:3001/api/show/${this.props.selectedItem._id}`,
       requestOptions
-    )
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          return response.json();
-          alert("thanhcong");
-        }
-        throw Error(response.status);
-      })
-      .then((result) => {
-        console.log(result);
-        this.state.title("");
-        this.state.description("");
-        this.state.durationInMins("");
-        this.state.director("");
-        this.state.actor("");
-        this.state.image_url("");
-        this.state.trailer_url("");
-        alert("thanh cong");
-      })
-      .catch((error) => {
-        console.log("error", error);
-        alert("wrong");
-      });
-      alert("chưa thanh cong")
+    ).then((response) => {
+      console.log(response);
+      if (response.ok) {
+        return response.json();
+      
+      }
+      throw Error(response.status);
+    
+    });
+
+
+  };
+  handleOpenEdit1 = () => {
+    this.setState({
+      openEdit1: true,
+    });
+  };
+  handleOpenEdit2 = () => {
+    this.setState({
+      openEdit2: true,
+    });
+  };
+  handleOpenEdit3 = () => {
+    this.setState({
+      openEdit3: true,
+    });
   };
 
- 
+  handleClose = () => {
+    this.setState({
+      openEdit1: false,
+      openEdit2: false,
+      openEdit3: false,
+    });
+  };
 
-  setParams = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleClickOpen = (item) => {
+    this.setState({
+      openEditItem: true,
+      selectedItem: item,
+    });
   };
-  handleChange = (event) => {
-    this.setState({ id: event.target.value });
+  actionsBlock1 = (item) => {
+    return (
+      <button
+      className="btn btn-default"
+        type="button"
+        onClick={() => {
+          this.handleOpenEdit1(item);
+        }}
+      >
+        Chọn
+      </button>
+    );
   };
+  actionsBlock2 = (item) => {
+    return (
+      <button
+      className="btn btn-default"
+        type="button"
+        onClick={() => {
+          this.handleOpenEdit2(item);
+        }}
+      >
+        Chọn
+      </button>
+    );
+  };
+  actionsBlock3 = (item) => {
+    return (
+      <button
+      className="btn btn-default"
+        type="button"
+        onClick={() => {
+          this.handleOpenEdit3(item);
+        }}
+      >
+        Chọn
+      </button>
+    );
+  };
+
   render() {
     return (
       <div>
-        <Dialog open={this.props.open}> 
-          <form style={{ width: '700px' }}>
-            <div className="modal-header text-center">
-              <h4 className="modal-title w-100 font-weight-bold">EDIT</h4>
-              <button
-                type="button"
-                className="submit-btn"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">Exit</span>
-              </button>
+        <Dialog open={this.props.open}>
+          <form className="dialog" style={{ width: "480px" }}>
+            <div className="modal-body mx-3">
+              <p style={{ fontSize: "30px" }}>Show</p>
+              <div className="">
+                <i className="prefix grey-text" />
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  htmlFor="defaultForm-email"
+                >
+                  ID
+                </label>
+
+                <input
+                  style={{ width: "100%" }}
+                  value={this.props.selectedItem._id}
+                  name="_id"
+                  type="text"
+                  id="defaultForm-email"
+                  className="form-control "
+                  onChange={this.setParams}
+                />
+              </div>
             </div>
             <div className="modal-body mx-3">
               <div className="">
-              <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Tên phim
-                </label>
-                <input
-                
-                  defaultValue ={this.props.selectedItem.title}
-                  name="title"
-                  type="text"
-                  id="defaultForm-email"
-                  className="form-control validate"
-                  onChange={this.setParams}
-                />
                 <i className="prefix grey-text" />
                 <label
                   data-error="wrong"
                   data-success="right"
                   htmlFor="defaultForm-email"
                 >
-                  Tóm tắt
+                  Phòng
+                  {this.actionsBlock1(this.props.selectedItem)}
                 </label>
+
                 <input
-                
-                  defaultValue ={this.props.selectedItem.description}
-                  name="description"
+                  style={{ width: "100%" }}
+                  value={localStorage.getItem("Hall_id_name")}
+                  name="hall"
                   type="text"
                   id="defaultForm-email"
-                  className="form-control validate"
+                  className="form-control "
                   onChange={this.setParams}
                 />
+              </div>
+            </div>
+            <div className="modal-body mx-3">
+              <div className="">
+                <i className="prefix grey-text" />
+                <i className=" prefix grey-text" />
+                <label
+                  data-error="wrong"
+                  data-success="right"
+                  htmlFor="defaultForm-pass"
+                >
+                  Phim
+                  {this.actionsBlock2(this.props.selectedItem)}
+                </label>
+
+                <input
+                  style={{ width: "100%" }}
+                  value={localStorage.getItem("Movie_id_name")}
+                  name="movie"
+                  type="text"
+                  id="defaultForm-pass"
+                  className="form-control "
+                  onChange={this.setParams}
+                />
+              </div>
+            </div>
+            <div className="modal-body mx-3">
+              <div className="">
                 <i className="prefix grey-text" />
                 <label
                   data-error="wrong"
                   data-success="right"
                   htmlFor="defaultForm-email"
                 >
-                  Thời lượng
+                  Thời gian bắt đầu
+                  {this.actionsBlock3(this.props.selectedItem)}
                 </label>
                 <input
-                  name="durationInMins"
+                  style={{ width: "100%" }}
+                  id="start"
+                  name="startTime"
                   type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.durationInMins}
-                  className="form-control validate"
+                  value={localStorage.getItem("startTime")}
+                  className="form-control "
                   onChange={this.setParams}
                 />
-                <i className="prefix grey-text" />
+              </div>
+            </div>
+            <div className="modal-body mx-3">
+              <div className="">
+                <i className=" prefix grey-text" />
                 <label
                   data-error="wrong"
                   data-success="right"
-                  htmlFor="defaultForm-email"
+                  htmlFor="defaultForm-pass"
                 >
-                  Ngày chiếu
+                  Thời gian kết thúc
                 </label>
+
                 <input
-                  name="releaseDate"
+                  style={{ width: "100%" }}
+                  id="end"
+                  name="endTime"
                   type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.releaseDate}
-                  className="form-control validate"
-                  onChange={this.setParams}
-                />
-                <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Đạo diễn
-                </label>
-                <input
-                  name="director"
-                  type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.director}
-                  className="form-control validate"
-                  onChange={this.setParams}
-                />
-                <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Diễn viên
-                </label>
-                <input
-                  name="actor"
-                  type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.actor}
-                  className="form-control validate"
-                  onChange={this.setParams}
-                />
-                <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Link ảnh
-                </label>
-                <input
-                  name="image_url"
-                  type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.image_url}
-                  className="form-control validate"
-                  onChange={this.setParams}
-                />
-                <i className="prefix grey-text" />
-                <label
-                  data-error="wrong"
-                  data-success="right"
-                  htmlFor="defaultForm-email"
-                >
-                  Trailer
-                </label>
-                <input
-                  name="trailer_url"
-                  type="text"
-                  id="defaultForm-email"
-                  defaultValue ={this.props.selectedItem.trailer_url}
-                  className="form-control validate"
+                  className="form-control "
+                  value={localStorage.getItem("endTime")}
                   onChange={this.setParams}
                 />
               </div>
@@ -241,20 +271,41 @@ class EditShow extends Component {
             <div className="modal-footer d-flex justify-content-center">
               <button
                 className="btn btn-default"
-                onClick={this.callApiEditAccount}
-                
+                onClick={this.callApiEditShow}
               >
-                OK
+                EDIT
               </button>
-              <button
-                className="btn btn-default"
-                onClick={this.props.handleClose}
-              >
-                Cancel
-              </button>
+              <button className="btn btn-default" onClick={this.props.handleClose}>CANCEL</button>
             </div>
           </form>
         </Dialog>
+        {this.state.openEdit1 ? (
+          <EditShow1
+            rows={this.state.rows}
+            open={this.state.openEdit1}
+            handleClose={this.handleClose}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        ) : null}
+        {this.state.openEdit2 ? (
+          <EditShow2
+            rows={this.state.rows}
+            open={this.state.openEdit2}
+            handleClose={this.handleClose}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        ) : null}
+        {this.state.openEdit3 ? (
+          <EditShow3
+            rows={this.state.rows}
+            open={this.state.openEdit3}
+            handleClose={this.handleClose}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+        ) : null}
       </div>
     );
   }

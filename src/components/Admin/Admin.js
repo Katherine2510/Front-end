@@ -8,7 +8,7 @@ import "../../css/responsive.css";
 import "../../css/lightbox.min.css";
 import "../../css/bootstrap.min.css";
 import Popup from "reactjs-popup";
-import "./Admin.css"
+
 
 import film1 from "../../images/u_c_film1.png";
 import film2 from "../../images/u_c_film2.png";
@@ -24,9 +24,7 @@ const Admin = () => {
         className="image-head-wrapper"
         style={{ backgroundImage: "url(" + banner + ")" }}
       >
-        <div className="inner-wrapper">
-          <p>ADMIN PAGE</p>
-        </div>
+       
       </section>
       <section className="gallery-block gallery-front" style={{ marginBottom: '150px' }}>
         <div className="margintrue">

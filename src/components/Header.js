@@ -8,6 +8,7 @@ import logo_home from "../images/logo_home.png";
 
 const Header = () => {
   const id = localStorage.getItem("success");
+  const ad = localStorage.getItem("email");
   const navigate = useNavigate();
   return (
     <div>
@@ -96,46 +97,82 @@ const Header = () => {
                         </a>
                       </li>
                       {/* <li><a data-hover="GIÁ VÉ" href="/price"><span>GIÁ VÉ</span></a></li>*/}
-                      <li>
-                        <a data-hover="THÀNH VIÊN" href="/member">
-                          <span>THÀNH VIÊN</span>
-                        </a>
-                      </li>
+                      
 
-                      {!id ? (
+                      {!id ?  (
                         <>
                           <li>
                             <a
-                              data-hover="LOGIN"
+                              data-hover="ĐĂNG NHẬP"
                               onClick={() => navigate("/login")}
                               className="active"
                             >
-                              <span>LOGIN</span>
+                              <span>ĐĂNG NHẬP</span>
                             </a>
                           </li>
                           <li>
                             <a
-                            style={{ marginLeft: '5px' }}
-                              data-hover="REGISTER"
+                              style={{ marginLeft: "5px" }}
+                              data-hover="ĐĂNG KÍ"
                               onClick={() => navigate("/register")}
                               className="text-right active"
                             >
-                              <span>REGISTER</span>
+                              <span>ĐĂNG KÝ</span>
                             </a>
                           </li>
                         </>
-                      ) : (
-                        <a className=" text-right active" 
-                             data-hover="LOGOUT"
+                      ) : id && !ad ?(
+                        /*thêm*/
+                        <li>
+                          <a
+                            data-hover="CÁ NHÂN"
+                            onClick={() => {
+                              navigate("/profile");
+                            }}
+                          >
+                            <span>CÁ NHÂN</span>
+                          </a>
+                          <a
+                            className=" text-right active"
+                            data-hover="ĐĂNG XUẤT"
                             onClick={() => {
                               navigate("/login");
                               localStorage.removeItem("success");
                             }}
                           >
-                           <span>LOGOUT</span> 
-                          
+                            <span>ĐĂNG XUẤT</span>
+                          </a>
+                        </li>
+                      ):
+                      (<li>
+                        <a
+                          data-hover="ADMIN"
+                          onClick={() => {
+                            navigate("/admin");
+                          }}
+                        >
+                          <span>ADMIN</span>
                         </a>
-                      )}
+                        <a
+                          data-hover="CÁ NHÂN"
+                          onClick={() => {
+                            navigate("/profile");
+                          }}
+                        >
+                          <span>CÁ NHÂN</span>
+                        </a>
+                        <a
+                          className=" text-right active"
+                          data-hover="ĐĂNG XUẤT"
+                          onClick={() => {
+                            navigate("/login");
+                            localStorage.removeItem("success");
+                          }}
+                        >
+                          <span>ĐĂNG XUẤT</span>
+                        </a>
+                      </li>)
+                      }
                     </ul>
                   </div>
                 </nav>

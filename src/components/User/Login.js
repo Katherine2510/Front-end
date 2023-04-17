@@ -62,6 +62,7 @@ const Login = () => {
           case roleType.admin:
             navigate("/admin");
             console.log(result);
+            localStorage.setItem("email", result.email)
             break;
           //case //viết nốt vào đây là đc nè
           default:
