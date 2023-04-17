@@ -145,7 +145,7 @@ class Comments extends Component {
           <div className="element-holder">
           
           <p className="para1"></p> 
-            <h3 className="para1">Bình luận về bộ phim</h3>
+            
             <form className="element-holder" onSubmit={this.addComment}>
              
               <input

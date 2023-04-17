@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../css/style-login.css";
 import "../../css/table.css";
-import '../../css/bootstrap.min.css';
+import "../../css/bootstrap.min.css";
 import { Link, useParams } from "react-router-dom";
 
 class Register extends Component {
@@ -15,6 +15,15 @@ class Register extends Component {
     };
   }
 
+  matchPassword = ()=> {
+    var pw1 = document.getElementById("password");
+    var pw2 = document.getElementById("confirmPassword");
+    if (pw1 != pw2) {
+      alert("Passwords did not match");
+    } else {
+      alert("Password created successfully");
+    }
+  }
   setParams = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -35,6 +44,7 @@ class Register extends Component {
       body: urlencoded,
       redirect: "follow",
     };
+    
 
     fetch("http://localhost:3001/api/auth/register", requestOptions).then(
       (response) => {
@@ -42,20 +52,21 @@ class Register extends Component {
         if (response.ok) {
           return response.json();
           alert("thanh cong");
+          
         }
         throw Error(response.status);
-        alert("error");
+        
       }
     );
     console.log(this.state.firstName);
+    alert("Email đã tồn tại");
   };
   render() {
     return (
-      <form>
-        <h1>Register</h1>
-        <div className="dialog, set">
-          <div className="form-body">
-            <div className="username">
+      <div class="login-page">
+        <div class="form">
+          <form class="login-form">
+            <div className="user-box">
               <label className="form__label" for="firstName">
                 First Name{" "}
               </label>
@@ -67,7 +78,7 @@ class Register extends Component {
                 onChange={this.setParams}
               />
             </div>
-            <div className="lastname">
+            <div className="user-box">
               <label className="form__label" for="lastName">
                 Last Name{" "}
               </label>
@@ -80,7 +91,7 @@ class Register extends Component {
                 onChange={this.setParams}
               />
             </div>
-            <div className="email">
+            <div className="user-box">
               <label className="form__label" for="email">
                 Email{" "}
               </label>
@@ -90,10 +101,10 @@ class Register extends Component {
                 name="email"
                 className="form__input"
                 placeholder="Email"
-                onChange={this.setParams}
+onChange={this.setParams}
               />
             </div>
-            <div className="password">
+            <div className="user-box">
               <label className="form__label" for="password">
                 Password{" "}
               </label>
@@ -106,7 +117,7 @@ class Register extends Component {
                 onChange={this.setParams}
               />
             </div>
-            <div className="confirm-password">
+            <div className="user-box">
               <label className="form__label" for="confirmPassword">
                 Confirm Password{" "}
               </label>
@@ -118,22 +129,21 @@ class Register extends Component {
                 onChange={this.setParams}
               />
             </div>
-          </div>
-          <div>
-            <button type="button" name="email" onClick={this.register}>
+
+            <button
+              type="button"
+              name="email"
+              onClick={this.register}
+              href="/register"
+            >
               REGISTER
             </button>
-          </div>
-          <div className="span-login"> Bạn đã có tài khoản? </div>
-          <div>
-            <Link to="/login">
-              <button type="button" name="email">
-                LOGIN
-              </button>
-            </Link>
-          </div>
+            <p class="message">
+              Bạn đã có tài khoản? <a href="/login">Đăng nhập</a>
+            </p>
+          </form>
         </div>
-      </form>
+      </div>
     );
   }
 }

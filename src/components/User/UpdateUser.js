@@ -11,7 +11,7 @@ class UpdateUser extends Component {
     };
   }
   yourFunctionHere() {
-    this.props.navigate("profile");
+    this.props.navigate("/profile");
   }
 
   setParams = (event) => {
@@ -39,40 +39,38 @@ class UpdateUser extends Component {
     fetch("http://localhost:3001/api/user", requestOptions)
       .then((response) => {
         console.log(response);
+        
         if (response.ok) {
           return response.json();
-          alert("thanhcong");
+          
         }
         throw Error(response.status);
       })
       .then((result) => {
         console.log(result);
-        this.state.firstName("");
+        
+        this.props.navigate("/profile")
         this.state.lastName("");
-        alert("thanh cong");
+        this.state.firstName("");
+        alert("Đổi thông tin thành công");
+        
       })
       .catch((error) => {
         console.log("error", error);
-        alert("wrong");
+       
       });
       
   };
 
   render() {
     return (
-      <form>
+      
+      <form style={{ marginLeft: '25%', marginRight: '25%', width: '50%', marginTop: '100px' }}>
         <div className="modal-header text-center">
-          <h4 className="modal-title w-100 font-weight-bold">
+          <h1 className="modal-title w-100 font-weight-bold">
             CẬP NHẬT THÔNG TIN TÀI KHOẢN
-          </h4>
-          <button
-            type="button"
-            className="submit-btn"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">Exit</span>
-          </button>
+          </h1>
+        
         </div>
         <div className="modal-body mx-3">
           <div className="">
@@ -82,9 +80,9 @@ class UpdateUser extends Component {
               data-success="right"
               htmlFor="defaultForm-email"
             >
-              First Name
+              Họ 
             </label>
-            <input
+            <input style={{ width:'100%' }}
               name="firstName"
               type="text"
               id="defaultForm-email"
@@ -98,10 +96,10 @@ class UpdateUser extends Component {
               data-success="right"
               htmlFor="defaultForm-pass"
             >
-              Last Name
+              Tên
             </label>
 
-            <input
+            <input style={{ width:'100%' }}
               name="lastName"
               type="text"
               id="defaultForm-pass"

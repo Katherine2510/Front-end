@@ -1,69 +1,49 @@
 import React, { Component } from "react";
 //import Records from '../json/thisstore.json';
 import banner from "../../images/pictures/admin.png";
-import '../../font-awesome/css/font-awesome.min.css'
+import "../../font-awesome/css/font-awesome.min.css";
+
+import "../../css/style.css";
+import "../../css/responsive.css";
+import "../../css/lightbox.min.css";
+import "../../css/bootstrap.min.css";
 import Popup from "reactjs-popup";
+import "./Admin.css"
+
+import film1 from "../../images/u_c_film1.png";
+import film2 from "../../images/u_c_film2.png";
+import film3 from "../../images/u_c_film1.png";
+
 //import banner2 from "../images/banner2.png"
 import { Outlet, Link } from "react-router-dom";
 const Admin = () => {
   return (
     <>
-      {/*end*/}
+    
       <section
         className="image-head-wrapper"
-        style={{ backgroundImage: "url(" + banner +")" }}
+        style={{ backgroundImage: "url(" + banner + ")" }}
       >
         <div className="inner-wrapper">
-          <h1>ADMIN PAGE</h1>
+          <p>ADMIN PAGE</p>
         </div>
       </section>
-      <div className="clearfix" />
-      {/*dinning*/}
-      <section className="blog">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-9 col-sm-8 col-xs-12">
-              <h2 className="blog-title-head">Trung tâm chiếu phim quốc gia</h2>
-
-              <div className="clearfix" />
-
-              {/*------------------------------------------- */}
-
-              <section className="blog">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-9 col-sm-8 col-xs-12">
-                     
-
-                      <div className="blog-image-single margin-top-small"></div>
-                      
-                    </div>
-                    <aside className="col-md-3 col-sm-4 col-xs-12">
-                      <div className="blog-list">
-                        <h4>CÁC THÔNG TIN CHÍNH</h4>
-                        <ul>
-                          <li>
-                            <Link to="/admin/nowshowing">
-                              <i className="fa fa-caret-right"> </i>Xem danh
-                              sách các bộ phim đang chiếu
-                            </Link>
-                          </li>
-                          
-                          <li>
-                          <a href="/admin/show">
-                              <i className="fa fa-caret-right"> </i>Xem danh
-                              sách các show
-                            </a>
-                          </li>
-                        </ul>
-                        <div className="clearfix"> </div>
-                      </div>
-                    
-                    </aside>
-                  </div>
-                </div>
-              </section>
-            </div>
+      <section className="gallery-block gallery-front" style={{ marginBottom: '150px' }}>
+        <div className="margintrue">
+          <div className="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+            <ul className="list-unstyled nav1 cl-effect-10 ">
+            <p className="title3">Chào mừng bạn đến với trang Admin</p>
+              <li>
+                <Link data-hover="CÁC SHOW" to="/admin/show" >
+                  <span style={{border:"1px solid"}}>CÁC SHOW</span>
+                </Link>
+              </li>
+              <li>
+                <Link data-hover="PHIM ĐANG CHIẾU" to="/admin/nowshowing">
+                  <span style={{border:"1px solid"}}>PHIM ĐANG CHIẾU</span>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

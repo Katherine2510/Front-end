@@ -233,7 +233,7 @@ class Show extends Component {
       <div col-md-9 col-sm-8 col-xs-12>
         <div id="product-table">
           <ButtonGroup>
-<button className="button3" onClick={() => this.handleOpenAddNew()} style={{ width: '240px', backgroundColor: ' #2b2b2b' }}>
+<button className="button3" onClick={() => this.handleOpenAddNew()} style={{ width: '240px', backgroundColor: ' #2b2b2b', borderRadius: '0px' }}>
               Thêm Show mới
             </button>
           </ButtonGroup>
@@ -244,24 +244,26 @@ class Show extends Component {
                   className="detail"
                   style={{ fontSize: "20px !important" }}
                 >
-                  <TableCell style={{ width: "5%" }}>STT</TableCell>
-                  <TableCell>Tên phim</TableCell>
-                  <TableCell>Thời gian bắt đầu</TableCell>
-                  <TableCell>Thời gian kết thúc</TableCell>
-                  <TableCell>Sảnh</TableCell>
+                  <TableCell style={{ width: "5%" }}><p className="table-cell">STT</p></TableCell>
+                  <TableCell><p className="table-cell">Tên phim</p></TableCell>
+                  <TableCell><p className="table-cell">Ngày chiếu</p></TableCell>
+                  <TableCell><p className="table-cell">Thời gian bắt đầu</p></TableCell>
+                  <TableCell><p className="table-cell">Thời gian kết thúc</p></TableCell>
+                  <TableCell><p className="table-cell">Sảnh</p></TableCell>
 
-                  <TableCell style={{ width: "5%" }}>Actions</TableCell>
+                  <TableCell style={{ width: "5%" }}><p className="table-cell">Actions</p></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody className="detail">
                 {this.state.rows.listShow?.map((row, i) => (
                   <TableRow key={row.id}>
-                    <TableCell>{i + 1}</TableCell>
-                    <TableCell>{row.movie.title}</TableCell>
-                    <TableCell>{row.startTime}</TableCell>
-                    <TableCell>{row.endTime}</TableCell>
-                    <TableCell>{row.hall.name}</TableCell>
-                    <TableCell>{this.actionsBlock(row)}</TableCell>
+                    <TableCell><p className="table-cell">{i + 1}</p></TableCell>
+                    <TableCell><p className="table-cell">{row.movie.title}</p></TableCell>
+                    <TableCell><p className="table-cell">{row.endTime.substr(0,10)}</p></TableCell>
+                    <TableCell><p className="table-cell">{row.startTime.substr(11,8)}</p></TableCell>
+                    <TableCell><p className="table-cell">{row.endTime.substr(11,8)}</p></TableCell>
+                    <TableCell><p className="table-cell">{row.hall.name}</p></TableCell>
+                    <TableCell><p className="table-cell">{this.actionsBlock(row)}</p></TableCell>
                   </TableRow>
                 ))}
               </TableBody>

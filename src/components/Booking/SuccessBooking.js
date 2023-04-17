@@ -20,7 +20,7 @@ const SuccessBooking = () => {
         <div  className="container" style={{ paddingLeft: '10px' }} > 
         <div >  
            <h1>THANH TOÁN THÀNH CÔNG</h1>
-            <button ><Link to= "/profile">Xem lại vé của bạn</Link></button>      
+            <button style={{ width: '50%',height:"50px", marginLeft: "25%" }}><Link to= "/profile/userbooking">Xem lại vé của bạn</Link></button>      
          </div>
         </div>
         

@@ -64,6 +64,7 @@ class AddNewShow2 extends Component {
     return (
       <button
         type="button"
+        className="button-dialog"
         onClick={() => {
           this.handleOpenAddNew3();
           //this.handleClose();
@@ -79,7 +80,7 @@ class AddNewShow2 extends Component {
     return (
       <div>
         <Dialog open={this.props.open}>
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} style={{ width: '480px'}}>
             <Table>
               <TableHead>
                 <TableRow

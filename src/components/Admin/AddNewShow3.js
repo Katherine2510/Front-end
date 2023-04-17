@@ -82,7 +82,7 @@ class AddNewShow3 extends Component {
     return (
       <div>
         <Dialog open={this.props.open}>
-          <form className="dialog">
+          <form className="dialog" style={{ width: '480px'}}> 
             <div className="modal-body mx-3">
               <div className="">
                 <i className="prefix grey-text" />
@@ -95,6 +95,7 @@ class AddNewShow3 extends Component {
                 </label>
 
                 <input
+                  style={{ width: '100%' }}
                   value={localStorage.getItem("Hall_id")}
                   name="hall"
                   type="text"
@@ -113,6 +114,7 @@ class AddNewShow3 extends Component {
                 </label>
 
                 <input
+                style={{ width: '100%' }}
                   value={localStorage.getItem("Movie_id")}
                   name="movie"
                   type="text"
@@ -138,6 +140,7 @@ class AddNewShow3 extends Component {
                   Thời gian bắt đầu
                 </label>
                 <input
+                style={{ width: '100%' }}
                   id="start"
                   name="startTime"
                   type="text"
@@ -156,6 +159,7 @@ class AddNewShow3 extends Component {
                 </label>
 
                 <input
+                style={{ width: '100%' }}
                   id="end"
                   name="endTime"
                   type="text"

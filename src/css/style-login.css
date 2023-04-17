@@ -1,73 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
-
-
-
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  margin-top: 50px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #cd380f;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #a22d0c;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #242222;
+  font-size: 12px;
+}
+.form .message a {
+  color: #b52619;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
 }
 
-.span-login {
-
-	font-size: 12px;
-    width: 50%;
-    margin-right: 25%;
-    margin-left: 25%;
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
 }
-
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
+.container .info {
+  margin: 50px auto;
+  text-align: center;
 }
-
-button {
-    width: 50%;
-    margin-right: 25%;
-    margin-left: 25%;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
 }
-
-
-.form-login {
-    width: 70%;
-	background-color: #FFFFFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding-left: 15%;
-    padding-right: 15%;
-	height: 100%;
-	text-align: center;
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
 }
-label {
-    width: 20%;
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
 }
-
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 80%;
-  
+.container .info span .fa {
+  color: #EF3B3A;
 }
-
-
-
-

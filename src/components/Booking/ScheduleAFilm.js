@@ -60,7 +60,7 @@ const ScheduleAFilm = () => {
     };
 
     return (
-        <div className="container" style={{ paddingLeft: '10px' }} >
+        <div className="container" style={{marginTop:'50px', paddingLeft: '10px' , paddingBottom: '40px' , boxShadow: `0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)` }} >
             <div >
                 <h3 style={{ fontSize: '40px', float: 'left', marginLeft: '10px' }} >Chọn lịch xem phim</h3>
 
@@ -70,7 +70,7 @@ const ScheduleAFilm = () => {
                             <div className="row">
                                 <h3 style={{ fontSize: '20px', marginLeft: '10px' }}>{e.startTime.substr(0, 10)}</h3>
                                 <div className="row">
-                                    <Link  className="button_book_times" onClick={() => { ClickToSeat(e._id); localStorage.setItem("showID", e._id); localStorage.setItem("date", e.startTime.substr(0, 11)); localStorage.setItem("title", e.movie.title); localStorage.setItem("start", e.startTime.substr(11, 8)); localStorage.setItem("end", e.endTime.substr(11, 8)) }} >
+                                    <Link  className="button_book_times" onClick={() => { ClickToSeat(e._id); localStorage.setItem("showID", e._id); localStorage.setItem("date", e.startTime.substr(0, 10)); localStorage.setItem("title", e.movie.title); localStorage.setItem("start", e.startTime.substr(11, 8)); localStorage.setItem("end", e.endTime.substr(11, 8)) }} >
                                         {e.startTime.substr(11, 5)} - {e.endTime.substr(11, 5)}
 
                                     </Link>

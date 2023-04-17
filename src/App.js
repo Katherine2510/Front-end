@@ -263,6 +263,7 @@ const App = () => {
           element={
             <div>
               <Admin />
+              <Show/>
             </div>
           }
         ></Route>

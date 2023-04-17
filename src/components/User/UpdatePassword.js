@@ -42,30 +42,24 @@ class UpdatePassword extends Component {
       .then((result) => {
         console.log(result);
         this.state.password("");
-        alert("thanh cong");
+        alert("Đổi mật khẩu thành công");
         
       })
       .catch((error) => {
         console.log("error", error);
-        alert("wrong");
+       
       });
   };
 
   render() {
     return (
-      <form>
-        <div className="modal-header text-center">
-          <h4 className="modal-title w-100 font-weight-bold">
+      
+      <form style={{ marginLeft: '25%', marginRight: '25%', width: '50%', marginTop: '100px' }}>
+        <div className="">
+          <h1 className="modal-title w-100 font-weight-bold">
             Thay đổi mật khẩu
-          </h4>
-          <button
-            type="button"
-            className="submit-btn"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">Exit</span>
-          </button>
+          </h1>
+      
         </div>
         <div className="modal-body mx-3">
           <div className="">
@@ -78,6 +72,7 @@ class UpdatePassword extends Component {
               Mật khẩu cũ
             </label>
             <input
+              style={{ width:'100%' }}
               name="password"
               type="text"
               id="defaultForm-email"
@@ -90,9 +85,10 @@ class UpdatePassword extends Component {
               data-success="right"
               htmlFor="defaultForm-email"
             >
-              Password
+              Mật khẩu mới
             </label>
             <input
+              style={{ width:'100%' }}
               name="password"
               type="text"
               id="defaultForm-email"

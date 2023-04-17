@@ -10,6 +10,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import "../Admin/Admin.css"
 
 //import DeleteIcon from "@mui/icons-material/Delete";
 //import EditIcon from "@mui/icons-material/Edit";
@@ -111,7 +112,7 @@ class UserBooking extends Component {
     };
 
     callApiDeleteBooking = () => {
-     
+
         const json = JSON.stringify({
             vnp_TxnRef: String(this.state.selectedItem.payment.vnp_TxnRef),
             vnp_TransactionDate: String(this.state.selectedItem.payment.vnp_TransactionDate),
@@ -125,7 +126,7 @@ class UserBooking extends Component {
                 'Content-Type': 'application/json'
             }
         });
-        alert("Khong thanh cong");
+
 
     }
 
@@ -166,7 +167,7 @@ class UserBooking extends Component {
         return (
             <div col-md-9 col-sm-8 col-xs-12>
                 <div id="product-table">
-                    <h2>Vé đã đặt</h2>
+                    <h1>Vé đã đặt</h1>
                     <TableContainer component={Paper}>
                         <Table>
                             <TableHead>
@@ -174,14 +175,15 @@ class UserBooking extends Component {
                                     className="detail"
                                     style={{ fontSize: "20px !important" }}
                                 >
-                                    <TableCell style={{ width: "5%" }}>STT</TableCell>
-                                    <TableCell style={{ width: "10%" }}>ID vé</TableCell>
-                                    <TableCell style={{ width: "25%" }}>Tên phim</TableCell>
-                                    <TableCell>Phòng chiếu</TableCell>
-                                    <TableCell style={{ width: "6%" }}>Ghế ngồi</TableCell>
-                                    <TableCell>Thời gian bắt đầu</TableCell>
-                                    <TableCell>Thời gian kết thúc</TableCell>
-                                    <TableCell>Thanh toán</TableCell>
+                                    <TableCell style={{ width: "5%" }}><p className="table-cell">STT</p></TableCell>
+                                    <TableCell style={{ width: "10%" }}><p className="table-cell">ID vé</p></TableCell>
+                                    <TableCell style={{ width: "25%" }}><p className="table-cell">Tên phim</p></TableCell>
+                                    <TableCell><p className="table-cell">Phòng chiếu</p></TableCell>
+                                    <TableCell style={{ width: "6%" }}><p className="table-cell">Ghế</p></TableCell>
+                                    <TableCell><p className="table-cell">Ngày chiếu</p></TableCell>
+                                    <TableCell><p className="table-cell">Thời gian bắt đầu</p></TableCell>
+                                    <TableCell><p className="table-cell">Thời gian kết thúc</p></TableCell>
+                                    <TableCell><p className="table-cell">Thanh toán</p></TableCell>
 
                                     <TableCell style={{ width: "5%" }}>Actions</TableCell>
                                 </TableRow>
@@ -192,18 +194,26 @@ class UserBooking extends Component {
                                     <>
 
                                         <TableRow key={row.id}>
-                                            <TableCell>{i + 1}</TableCell>
-                                            <TableCell>{row._id}</TableCell>
-                                            <TableCell>{row.show?.movie.title}</TableCell>
-                                            <TableCell>{row.show?.hall.name}</TableCell>
-                                            <TableCell>{row.seats?.map((col) => (
-                                                `Ghế(${col.row}-${String.fromCharCode(65 + Number(col.column))}) `
+                                            <TableCell> <p className="table-cell">{i + 1}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row._id}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.show?.movie.title}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.show?.hall.name}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.seats?.map((col) => (
+                                                `Ghế (${col.row}${String.fromCharCode(65 + Number(col.column))}) `
 
-                                            ))}</TableCell>
-                                            <TableCell>{row.show?.startTime}</TableCell>
-                                            <TableCell>{row.show?.endTime}</TableCell>
-                                            <TableCell>{row.amount}</TableCell>
-                                            <TableCell>{this.actionsBlock(row)}</TableCell>
+                                            ))}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.show?.startTime.substr(0, 10)}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.show?.startTime.substr(11, 8)}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.show?.endTime.substr(11, 8)}</p></TableCell>
+                                            <TableCell><p className="table-cell">{row.amount}</p></TableCell>
+                                            {!row.isCancel ? (
+                                                <>
+                                                    <TableCell><p className="table-cell">{this.actionsBlock(row)}</p></TableCell>
+                                                </>
+                                            ) : (
+                                                /*thêm*/
+                                                <TableCell style={{ textAlign: "center" }}><p>ĐÃ HUỶ</p></TableCell>
+                                            )}
                                         </TableRow>
                                     </>
 

@@ -91,8 +91,8 @@ class EditShow extends Component {
   render() {
     return (
       <div>
-        <Dialog open={this.props.open}>
-          <form>
+        <Dialog open={this.props.open}> 
+          <form style={{ width: '700px' }}>
             <div className="modal-header text-center">
               <h4 className="modal-title w-100 font-weight-bold">EDIT</h4>
               <button

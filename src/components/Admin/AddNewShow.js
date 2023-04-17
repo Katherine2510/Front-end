@@ -64,6 +64,7 @@ class AddNewShow extends Component {
     return (
       <button style={{ float: 'left'}}
         type="button"
+        className="button-dialog"
         onClick={() => {
           this.handleOpenAddNew2(item);
           localStorage.setItem("Hall_id", item._id);

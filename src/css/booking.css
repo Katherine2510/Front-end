@@ -294,9 +294,9 @@ input[type="number"] {
 }
 
 button {
-  background: #f5f5f5;
+  background: #c52b05;
   border: none;
-  color: #000;
+  color: #ffffff;
   font-weight: 600;
   padding: 8px 20px;
   border-radius: 10px;
@@ -304,6 +304,7 @@ button {
   letter-spacing: 1px;
   font-family: 'Source Sans Pro', sans-serif;
   cursor: pointer;
+  width: 50%;
 }
 
 ul.seat_w3ls {
@@ -348,16 +349,16 @@ h2.wthree {
 
 .emptyBox::before {
   content: "";
-  box-shadow: inset 0px 2px 3px 0px #7f1403, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  -moz-box-shadow: inset 0px 2px 3px 0px #7f1403, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  -webkit-box-shadow: inset 0px 2px 3px 0px #7f1403, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  box-shadow: inset 0px 2px 3px 0px #2a2a2a, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -moz-box-shadow: inset 0px 2px 3px 0px #2a2a2a, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -webkit-box-shadow: inset 0px 2px 3px 0px #2a2a2a, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   background-color: #ffffff;
 }
 .emptyBox2::before {
   content: "";
-  box-shadow: inset 0px 2px 3px 0px #ff0088, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  -moz-box-shadow: inset 0px 2px 3px 0px #ff0088, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  -webkit-box-shadow: inset 0px 2px 3px 0px #ff0088, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -moz-box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  -webkit-box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   background-color: #ffffff;
 }
 .emptyBox1::before {
@@ -443,7 +444,7 @@ input[type=checkbox]:before {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  border: 3px solid #a13c1a;
+  border: 3px solid #151515;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
@@ -478,7 +479,7 @@ input[type=checkbox]:disabled:before {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  border: 3px solid #0e023f;
+  border: 3px solid #120059;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
@@ -508,7 +509,7 @@ input[type=checkbox]:disabled:before {
   display: inline-block;
   vertical-align: middle;
   text-align: center;
-  border: 3px solid #fa009a;
+  border: 3px solid #004e27;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);

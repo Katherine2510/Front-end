@@ -57,7 +57,7 @@ const Login = () => {
         toast.success(true);
         setPassword("");
         setEmail("");
-        alert("thanh cong");
+      
         switch (result?.user?.email) {
           case roleType.admin:
             navigate("/admin");
@@ -71,7 +71,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert("email, password are wrong");
+        alert("Email hoặc mật khẩu sai!");
       });
   };
 

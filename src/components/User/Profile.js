@@ -7,6 +7,8 @@ import "../../css/responsive.css";
 import "../../css/lightbox.min.css";
 import "../../css/bootstrap.min.css";
 import UpdateUser from "./UpdateUser";
+import "./Profile.css"
+import profile from "../../images/profile.png"
 
 import axios from "axios";
 
@@ -30,78 +32,41 @@ export default function Profile(props) {
   }
 
   return (
-    <div>
-      {/*<div className="image-head-wrapper"   style={{ backgroundImage: "url(" + banner0 + ")" }} >
-            <div className="inner-wrapper">
-             </div>
-    </div>*/}
-      <div
-        className="col-md-10
-                 col-sm-12 col-xs-12 remove-padd"
-      ><div style={{ marginLeft: "10%", fontSize: "100" }}>
-          <div style={{ fontSize: 30 }}> THÔNG TIN CÁ NHÂN </div>
+    <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
+  {" "}
+  <div className="card p-4">
+    {" "}
+    <div className=" image d-flex flex-column justify-content-center align-items-center">
+      {" "}
+      <button className="btn btn-secondary" style={{ marginBottom: '50px', marginTop: '50px' }}>
+        {" "}
+        <img src={profile} height={100} width={100}/>
+      </button>{" "}
+      <span className="name mt-3">{Profile.user?.firstName} {Profile.user?.lastName}</span>{" "}
+      <span className="idd">{Profile.user?.email}</span>{" "}
+      <div className="d-flex flex-row justify-content-center align-items-center gap-2">
+        {" "}
+     
+       
+      </div>{" "}
+      
+      <div className=" d-flex mt-2">
+        {" "}
+        <button className="btn1 btn-dark"><Link to="/profile/updateuser" style={{ color: "white" }}>Chỉnh sửa</Link></button>{" "}
+      </div>{" "}
+      <div className=" d-flex mt-2">
+        {" "}
+        <button className="btn1 btn-dark"><Link to="/profile/updatepassword" style={{ color: "white" }}>Cập nhật mật khẩu</Link></button>{" "}
+      </div>{" "}
+      <div className=" d-flex mt-2">
+        {" "}
+        <button className="btn1 btn-dark"><Link to="/profile/userbooking" style={{ color: "white" }}>Xem vé đã đặt trước</Link></button>{" "}
+      </div>{" "}
+      
+   </div>
+    
+  </div>
+</div>
 
-        </div>
-
-      </div>
-
-      <div className="resort-overview-block">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-10 col-sm-12 col-xs-10 ">
-              <div className="side-A">
-                <div col-md-9 col-sm-8 col-xs-12 className="film-detail">
-                  <div className="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
-                    <ul className="list-unstyled nav1 cl-effect-10">
-                      <li>
-                        <a href="/profile/userbooking">
-                          <span>Vé đã đặt</span>
-                        </a>
-                      </li>
-
-                    </ul>
-                  </div>
-                  <div >
-                    <div style={{ fontSize: 20 }}>First Name: {Profile.user?.firstName}</div>
-                    <div style={{ fontSize: 20 }}>Last Name: {Profile.user?.lastName}</div>
-                    <div style={{ fontSize: 20 }}>Email: {Profile.user?.email}</div>
-                    <div style={{ fontSize: 20}}>Password: {Profile.user?.password}</div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="modal fade"
-                id="modalUpdateUserForm"
-                tabIndex={-1}
-                role="dialog"
-                aria-labelledby="myModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog" role="document">
-                  <div className="modal-content single-bottom comment-form">
-                    <UpdateUser />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <Link to="/profile/updateuser">
-                  <button class="button-39" role="button">
-                    Cập nhật thông tin
-                  </button>
-                </Link>
-              </div>
-              <div>
-                <Link to="/profile/updatepassword">
-                  <button class="button-39" role="button">
-                    Thay đổi mật khẩu
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="clearfix" />
-        </div>
-      </div>
-    </div>
   );
 }
