@@ -356,17 +356,17 @@ h2.wthree {
 }
 .emptyBox2::before {
   content: "";
-  box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
+  box-shadow: inset 0px 2px 3px 0px #007527, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px #007500, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  background-color: #ffffff;
+  background-color: #faff5d;
 }
 .emptyBox1::before {
   content: "";
   box-shadow: inset 0px 2px 3px 0px #0e023f, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px #0e023f, 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px #0e023f, 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  background-color: #ffffff;
+  background-color: #7169ff;
 }
 
 .seats {
@@ -462,12 +462,14 @@ input[type=checkbox]:disabled:before {
 }
 
 .input1[type=checkbox] {
+  
   width: 15px;
   margin-right: 14px;
   cursor: pointer;
 }
 
 .input1[type=checkbox]:before {
+  background-color: #7b7dff;
   content: "";
   width: 25px;
   height: 18px;
@@ -483,7 +485,7 @@ input[type=checkbox]:disabled:before {
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  background-color: #fff;
+  
 }
 
 
@@ -513,7 +515,7 @@ input[type=checkbox]:disabled:before {
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
   -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
-  background-color: #fff;
+  background-color: #ebff55;
 }
 
 
